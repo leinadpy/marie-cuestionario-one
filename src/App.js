@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { Helmet } from "react-helmet";
+import Menu from "./components/Menu";
+import ContenedorIndex from "./elements/ContenedorIndex";
+import Boton from "./elements/Boton";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Menu />
+
+      <div>
+        <Helmet>
+          <title>Anamnesis pacientes nuevos</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Helmet>
+
+        <ContenedorIndex>
+          <h1 className="font-bold" style={{marginLeft: "20px"}}>
+            Bienvenidos/as, soy su nutricionista{" "}
+            <span style={{ color: "#A1B947" }}>Mariela Ojeda</span>
+          </h1>
+
+          <p className="mt-3" style={{marginLeft: "5px", marginRight:"10px"}}>
+            Favor completar el siguiente formulario antes de su consulta
+          </p>
+          <Boton to="/form" primario="true">
+            Siguiente
+          </Boton>
+        </ContenedorIndex>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
