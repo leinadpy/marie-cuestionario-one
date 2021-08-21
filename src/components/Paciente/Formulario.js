@@ -1166,9 +1166,7 @@ const Formulario = ({ paciente }) => {
 
           <span>
             <span style={{ fontWeight: "bold" }}>Recordatorio:</span> Enviar vía
-            whatsapp último análisis de laboratorio con los siguientes valores:
-            fecha, hemograma, glicemia, HBA1C, perfil lípido, perfil hepático,
-            perfil renal, perfil hormonal.
+            whatsapp último análisis de laboratorio.
           </span>
           <ContenedorInput>
             <Buton type="submit" primario="true">
