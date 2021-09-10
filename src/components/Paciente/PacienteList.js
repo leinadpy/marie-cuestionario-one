@@ -10,6 +10,7 @@ import ContenedorTabla from "./../../elements/ContenedorTabla";
 import Menu from "./../Menu";
 import { ReactComponent as IconoEditar } from "./../../images/editar.svg";
 import { ReactComponent as IconoBorrar } from "./../../images/borrar.svg";
+import { ReactComponent as IconoPDF } from "./../../images/pdf.svg";
 import { MDBDataTable } from "mdbreact";
 import Boton from "./../../elements/Boton";
 import Buton from "./../../elements/Buton";
@@ -39,6 +40,9 @@ const PacienteList = () => {
               <Buton onClick={() => deletePaciente(dato.id)} small="true">
                 <IconoBorrar />
               </Buton>
+              <Boton to={`/pacientes/pdf/${dato.id}`} small="true">
+                <IconoPDF />
+              </Boton>
             </ContenedorBoton>
           ),
         };
@@ -83,12 +87,12 @@ const PacienteList = () => {
   return (
     <>
       <Helmet>
-        <title>Lista de categorías</title>
+        <title>Lista de pacientes</title>
       </Helmet>
       <Menu />
       <Header>
         <ContenedorHeader>
-          <Titulo>Lista de categorías</Titulo>
+          <Titulo>Lista de pacientes</Titulo>
         </ContenedorHeader>
       </Header>
 

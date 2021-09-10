@@ -5,6 +5,7 @@ const Buton = styled.button`
   width: ${(props) =>
     props.conIcono === "true" ? "15.62rem" : "auto"}; /* 250px */
   margin-left: 1.25rem; /* 20px */
+  margin-right: 1.25rem;
   border: none;
   border-radius: 0.625rem; /* 10px */
   color: #fff;

@@ -13,6 +13,7 @@ import InicioSesion from "./components/InicioSesion";
 import RutaPrivada from "./components/RutaPrivada";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import PDFVisualization from "./components/Paciente/PDFVIsualization";
 
 WebFont.load({
   google: {
@@ -32,6 +33,9 @@ const Index = () => {
               <Route path="/form" component={NewPaciente} />
               <RutaPrivada path="/pacientes/edit/:id">
                 <EditPaciente />
+              </RutaPrivada>
+              <RutaPrivada path="/pacientes/pdf/:id">
+                <PDFVisualization />
               </RutaPrivada>
               <RutaPrivada path="/pacientes">
                 <PacienteList />
