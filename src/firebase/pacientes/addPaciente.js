@@ -1,6 +1,7 @@
 import { db } from "./../firebaseConfig";
 
 const addPaciente = ({
+  fechaCreacion,
   nombreYApellido,
   fechaDeNacimiento,
   edad,
@@ -10,6 +11,9 @@ const addPaciente = ({
   hijos,
   conQuienVive,
   motivoConsulta,
+  fechaPeso,
+  peso,
+  estatura,
   enfCardiacas,
   diabetes,
   presionAlta,
@@ -50,6 +54,7 @@ const addPaciente = ({
   cena,
 }) => {
   return db.collection("pacientes").add({
+    fechaCreacion: fechaCreacion,
     nombreYApellido: nombreYApellido,
     fechaDeNacimiento: fechaDeNacimiento,
     edad: edad,
@@ -59,6 +64,9 @@ const addPaciente = ({
     hijos: hijos,
     conQuienVive: conQuienVive,
     motivoConsulta: motivoConsulta,
+    fechaPeso: fechaPeso,
+    peso: peso,
+    estatura: estatura,
     enfCardiacas: enfCardiacas,
     diabetes: diabetes,
     presionAlta: presionAlta,

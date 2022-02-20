@@ -15,6 +15,7 @@ import Buton from "../../elements/Buton";
 
 const Formulario = ({ paciente }) => {
   const [form, setForm] = useState({
+    fechaCreacion: "",
     nombreYApellido: "",
     fechaDeNacimiento: "",
     edad: "",
@@ -24,6 +25,9 @@ const Formulario = ({ paciente }) => {
     hijos: "",
     conQuienVive: "",
     motivoConsulta: "",
+    fechaPeso: "",
+    peso: "",
+    estatura: "",
     enfCardiacas: "",
     diabetes: "",
     presionAlta: "",
@@ -70,6 +74,7 @@ const Formulario = ({ paciente }) => {
   useEffect(() => {
     if (paciente) {
       setForm({
+        fechaCreacion: paciente.fechaCreacion,
         nombreYApellido: paciente.data().nombreYApellido,
         fechaDeNacimiento: paciente.data().fechaDeNacimiento,
         edad: paciente.data().edad,
@@ -79,6 +84,9 @@ const Formulario = ({ paciente }) => {
         hijos: paciente.data().hijos,
         conQuienVive: paciente.data().conQuienVive,
         motivoConsulta: paciente.data().motivoConsulta,
+        fechaPeso: paciente.data().fechaPeso,
+        peso: paciente.data().peso,
+        estatura: paciente.data().estatura,
         enfCardiacas: paciente.data().enfCardiacas,
         diabetes: paciente.data().diabetes,
         presionAlta: paciente.data().presionAlta,
@@ -141,6 +149,7 @@ const Formulario = ({ paciente }) => {
   const handleReset = (e) => {
     e.preventDefault();
     setForm({
+      fechaCreacion: "",
       nombreYApellido: "",
       fechaDeNacimiento: "",
       edad: "",
@@ -150,6 +159,9 @@ const Formulario = ({ paciente }) => {
       hijos: "",
       conQuienVive: "",
       motivoConsulta: "",
+      fechaPeso: "",
+      peso: "",
+      estatura: "",
       enfCardiacas: "",
       diabetes: "",
       presionAlta: "",
@@ -204,6 +216,7 @@ const Formulario = ({ paciente }) => {
       if (paciente) {
         editPaciente({
           id: paciente.id,
+          fechaCreacion: form.fechaCreacion,
           nombreYApellido: form.nombreYApellido,
           fechaDeNacimiento: form.fechaDeNacimiento,
           edad: form.edad,
@@ -213,6 +226,9 @@ const Formulario = ({ paciente }) => {
           hijos: form.hijos,
           conQuienVive: form.conQuienVive,
           motivoConsulta: form.motivoConsulta,
+          fechaPeso: form.fechaPeso,
+          peso: form.peso,
+          estatura: form.estatura,
           enfCardiacas: form.enfCardiacas,
           diabetes: form.diabetes,
           presionAlta: form.presionAlta,
@@ -259,7 +275,12 @@ const Formulario = ({ paciente }) => {
             console.log(error);
           });
       } else {
+        setForm({
+          ...form,
+          fechaCreacion: new Date(),
+        });
         addPaciente({
+          fechaCreacion: new Date(),
           nombreYApellido: form.nombreYApellido,
           fechaDeNacimiento: form.fechaDeNacimiento,
           edad: form.edad,
@@ -269,6 +290,9 @@ const Formulario = ({ paciente }) => {
           hijos: form.hijos,
           conQuienVive: form.conQuienVive,
           motivoConsulta: form.motivoConsulta,
+          fechaPeso: form.fechaPeso,
+          peso: form.peso,
+          estatura: form.estatura,
           enfCardiacas: form.enfCardiacas,
           diabetes: form.diabetes,
           presionAlta: form.presionAlta,
@@ -310,6 +334,7 @@ const Formulario = ({ paciente }) => {
         })
           .then(() => {
             setForm({
+              fechaCreacion: "",
               nombreYApellido: "",
               fechaDeNacimiento: "",
               edad: "",
@@ -319,6 +344,9 @@ const Formulario = ({ paciente }) => {
               hijos: "",
               conQuienVive: "",
               motivoConsulta: "",
+              fechaPeso: "",
+              peso: "",
+              estatura: "",
               enfCardiacas: "",
               diabetes: "",
               presionAlta: "",
@@ -482,6 +510,40 @@ const Formulario = ({ paciente }) => {
               name="motivoConsulta"
               id="motivoConsulta"
               value={form.motivoConsulta}
+              onChange={updateField}
+            />
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="fechaPeso">Última vez que se pesó</label>
+            <select
+              id="fechaPeso"
+              name="fechaPeso"
+              onChange={updateField}
+              value={form.fechaPeso}
+            >
+              <option value="mes">Hace 1 mes o menos</option>
+              <option value="tresmeses">De 1 mes a 3 meses</option>
+              <option value="seismeses">De 3 meses a 6 meses</option>
+              <option value="masseismeses">Más de 6 meses</option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="peso">Peso (kg): </label>
+            <InputChico
+              type="text"
+              name="peso"
+              id="peso"
+              value={form.peso}
+              onChange={updateField}
+            />
+          </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="estatura">Estatura (cm): </label>
+            <InputChico
+              type="text"
+              name="estatura"
+              id="estatura"
+              value={form.estatura}
               onChange={updateField}
             />
           </ContenedorInput>

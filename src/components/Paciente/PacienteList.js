@@ -31,6 +31,9 @@ const PacienteList = () => {
           description: dato.description,
           nombreYApellido: dato.nombreYApellido,
           edad: dato.edad,
+          fechaCreacion: dato.fechaCreacion
+            ? formatDate(dato.fechaCreacion)
+            : "2000-01-01 00:00:00",
           telefono: dato.telefono,
           abm: (
             <ContenedorBoton>
@@ -54,6 +57,28 @@ const PacienteList = () => {
     setCargando(false);
   }, [dataPacientes]);
 
+  function formatDate(date) {
+    const d = date.toDate();
+    function padTo2Digits(num) {
+      return num.toString().padStart(2, "0");
+    }
+    let month = "" + (d.getMonth() + 1);
+    let day = "" + d.getDate();
+    let year = d.getFullYear();
+
+    if (month.length < 2) month = "0" + month;
+    if (day.length < 2) day = "0" + day;
+
+    return (
+      [year, month, day].join("-") + " " +
+      [
+        padTo2Digits(d.getHours()),
+        padTo2Digits(d.getMinutes()),
+        padTo2Digits(d.getSeconds()),
+      ].join(":")
+    );
+  }
+
   const data = {
     columns: [
       {
@@ -65,6 +90,12 @@ const PacienteList = () => {
       {
         label: "Edad",
         field: "edad",
+        sort: "asc",
+        width: 100,
+      },
+      {
+        label: "Fecha",
+        field: "fechaCreacion",
         sort: "asc",
         width: 100,
       },

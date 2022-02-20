@@ -2,6 +2,7 @@ import { db } from "./../firebaseConfig";
 
 const editPaciente = ({
   id,
+  fechaCreacion,
   nombreYApellido,
   fechaDeNacimiento,
   edad,
@@ -11,6 +12,9 @@ const editPaciente = ({
   hijos,
   conQuienVive,
   motivoConsulta,
+  fechaPeso,
+  peso,
+  estatura,
   enfCardiacas,
   diabetes,
   presionAlta,
@@ -51,6 +55,7 @@ const editPaciente = ({
   cena,
 }) => {
   return db.collection("pacientes").doc(id).update({
+    fechaCreacion: fechaCreacion,
     nombreYApellido: nombreYApellido,
     fechaDeNacimiento: fechaDeNacimiento,
     edad: edad,
@@ -60,6 +65,9 @@ const editPaciente = ({
     hijos: hijos,
     conQuienVive: conQuienVive,
     motivoConsulta: motivoConsulta,
+    fechaPeso: fechaPeso,
+    peso: peso,
+    estatura: estatura,
     enfCardiacas: enfCardiacas,
     diabetes: diabetes,
     presionAlta: presionAlta,
