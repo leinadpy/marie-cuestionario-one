@@ -74,7 +74,7 @@ const Formulario = ({ paciente }) => {
   useEffect(() => {
     if (paciente) {
       setForm({
-        fechaCreacion: paciente.fechaCreacion,
+        fechaCreacion: paciente.fechaCreacion ? paciente.fechaCreacion : "",
         nombreYApellido: paciente.data().nombreYApellido,
         fechaDeNacimiento: paciente.data().fechaDeNacimiento,
         edad: paciente.data().edad,
@@ -84,9 +84,9 @@ const Formulario = ({ paciente }) => {
         hijos: paciente.data().hijos,
         conQuienVive: paciente.data().conQuienVive,
         motivoConsulta: paciente.data().motivoConsulta,
-        fechaPeso: paciente.data().fechaPeso,
-        peso: paciente.data().peso,
-        estatura: paciente.data().estatura,
+        fechaPeso: paciente.data().fechaPeso ? paciente.data().fechaPeso : "",
+        peso: paciente.data().peso ? paciente.data().peso : "",
+        estatura: paciente.data().estatura ? paciente.data().estatura : "",
         enfCardiacas: paciente.data().enfCardiacas,
         diabetes: paciente.data().diabetes,
         presionAlta: paciente.data().presionAlta,
@@ -216,7 +216,7 @@ const Formulario = ({ paciente }) => {
       if (paciente) {
         editPaciente({
           id: paciente.id,
-          fechaCreacion: form.fechaCreacion,
+          fechaCreacion: form.fechaCreacion ? form.fechaCreacion : "",
           nombreYApellido: form.nombreYApellido,
           fechaDeNacimiento: form.fechaDeNacimiento,
           edad: form.edad,
@@ -226,9 +226,9 @@ const Formulario = ({ paciente }) => {
           hijos: form.hijos,
           conQuienVive: form.conQuienVive,
           motivoConsulta: form.motivoConsulta,
-          fechaPeso: form.fechaPeso,
-          peso: form.peso,
-          estatura: form.estatura,
+          fechaPeso: form.fechaPeso ? form.fechaPeso : "",
+          peso: form.peso ? form.peso : "",
+          estatura: form.estatura ? form.estatura : "",
           enfCardiacas: form.enfCardiacas,
           diabetes: form.diabetes,
           presionAlta: form.presionAlta,
@@ -1232,7 +1232,7 @@ const Formulario = ({ paciente }) => {
           </span>
           <ContenedorInput>
             <Buton type="submit" primario="true">
-              Enviar
+              {paciente ? "Editar" : "Enviar"}
             </Buton>
             <Buton type="resetForm" onClick={handleReset}>
               Reset
