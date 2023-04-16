@@ -46,6 +46,7 @@ const Formulario = ({ paciente }) => {
     horarioRutinaDiaria: "",
     horasDormir: "",
     actividadFisica: "",
+    cualDeporte: "",
     otroActividadFisica: "",
     frecuenciaAF: "",
     duracionAF: "",
@@ -103,6 +104,7 @@ const Formulario = ({ paciente }) => {
         horarioRutinaDiaria: paciente.data().horarioRutinaDiaria,
         horasDormir: paciente.data().horasDormir,
         actividadFisica: paciente.data().actividadFisica,
+        cualDeporte: paciente.data().cualDeporte,
         otroActividadFisica: paciente.data().otroActividadFisica,
         frecuenciaAF: paciente.data().frecuenciaAF,
         duracionAF: paciente.data().duracionAF,
@@ -188,6 +190,7 @@ const Formulario = ({ paciente }) => {
       horarioRutinaDiaria: "",
       horasDormir: "",
       actividadFisica: "",
+      cualDeporte: "",
       otroActividadFisica: "",
       frecuenciaAF: "",
       duracionAF: "",
@@ -254,6 +257,7 @@ const Formulario = ({ paciente }) => {
           horarioRutinaDiaria: form.horarioRutinaDiaria,
           horasDormir: form.horasDormir,
           actividadFisica: form.actividadFisica,
+          cualDeporte: form.cualDeporte,
           otroActividadFisica: form.otroActividadFisica,
           frecuenciaAF: form.frecuenciaAF,
           duracionAF: form.duracionAF,
@@ -316,6 +320,7 @@ const Formulario = ({ paciente }) => {
           horarioRutinaDiaria: form.horarioRutinaDiaria,
           horasDormir: form.horasDormir,
           actividadFisica: form.actividadFisica,
+          cualDeporte: form.cualDeporte,
           otroActividadFisica: form.otroActividadFisica,
           frecuenciaAF: form.frecuenciaAF,
           duracionAF: form.duracionAF,
@@ -365,6 +370,7 @@ const Formulario = ({ paciente }) => {
               horarioRutinaDiaria: "",
               horasDormir: "",
               actividadFisica: "",
+              cualDeporte: "",
               otroActividadFisica: "",
               frecuenciaAF: "",
               duracionAF: "",
@@ -724,638 +730,326 @@ const Formulario = ({ paciente }) => {
             </select>
           </ContenedorInput>
           <ContenedorInput style={{ marginBottom: "20px" }}>
-            <label htmlFor="objetivo">
-              Objetivo:{" "}
-            </label>
+            <label htmlFor="objetivo">Objetivo: </label>
             <select
               id="objetivo"
               name="objetivo"
               onChange={updateField}
               value={form.objetivo}
             >
-              <option value="vidaSaludable">Adquirir un estilo de vida saludable</option>
+              <option value="vidaSaludable">
+                Adquirir un estilo de vida saludable
+              </option>
               <option value="condicionFisica">Ganar condición física</option>
               <option value="tonificarCuerpo">Tonificar el cuerpo</option>
-              <option value="fuerzaYMasaMuscular">Ganar fuerza y masa muscular</option>
+              <option value="fuerzaYMasaMuscular">
+                Ganar fuerza y masa muscular
+              </option>
               <option value="perderPeso">Perder peso</option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginTop: "20px" }}>
-            <label htmlFor="enfCardiacas">Enfermedades cardiacas</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.enfCardiacas === "Si"}
-                onChange={updateField}
-                name="enfCardiacas"
-                id="enfCardiacas"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.enfCardiacas === "No"}
-                onChange={updateField}
-                name="enfCardiacas"
-                id="enfCardiacas"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="diabetes">Diabetes</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.diabetes === "Si"}
-                onChange={updateField}
-                name="diabetes"
-                id="diabetes"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.diabetes === "No"}
-                onChange={updateField}
-                name="diabetes"
-                id="diabetes"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="presionAlta">Presión alta</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.presionAlta === "Si"}
-                onChange={updateField}
-                name="presionAlta"
-                id="presionAlta"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.presionAlta === "No"}
-                onChange={updateField}
-                name="presionAlta"
-                id="presionAlta"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="asma">Asma</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.asma === "Si"}
-                onChange={updateField}
-                name="asma"
-                id="asma"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.asma === "No"}
-                onChange={updateField}
-                name="asma"
-                id="asma"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="alergias">Alergias</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.alergias === "Si"}
-                onChange={updateField}
-                name="alergias"
-                id="alergias"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                name="alergias"
-                checked={form.alergias === "No"}
-                onChange={updateField}
-                id="alergias"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="hipoHiperTiroidismo">Hipo | Hipertiroidismo:</label>
-            <ContenedorInputRadio>
-              <div>
-                <InputRadio
-                  type="radio"
-                  value="hipo"
-                  checked={form.hipoHiperTiroidismo === "hipo"}
-                  onChange={updateField}
-                  name="hipoHiperTiroidismo"
-                  id="hipoHiperTiroidismo"
-                />
-                <span>Hipotiroidismo</span>
-              </div>
-              <div>
-                <InputRadio
-                  type="radio"
-                  value="hiper"
-                  checked={form.hipoHiperTiroidismo === "hiper"}
-                  onChange={updateField}
-                  name="hipoHiperTiroidismo"
-                  id="hipoHiperTiroidismo"
-                />{" "}
-                <span>Hipertiroidismo</span>
-              </div>
-              <div>
-                <InputRadio
-                  type="radio"
-                  value="ninguno"
-                  checked={form.hipoHiperTiroidismo === "ninguno"}
-                  onChange={updateField}
-                  name="hipoHiperTiroidismo"
-                  id="hipoHiperTiroidismo"
-                />{" "}
-                <span>Ninguno</span>
-              </div>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="sindromeOvarioPoliquistico">
-              Sindrome de Ovario Poliquístico
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="molestiaRecurrente">
+              ¿Sientes algún tipo de molestia recurrente?:{" "}
             </label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.sindromeOvarioPoliquistico === "Si"}
-                onChange={updateField}
-                name="sindromeOvarioPoliquistico"
-                id="sindromeOvarioPoliquistico"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.sindromeOvarioPoliquistico === "No"}
-                onChange={updateField}
-                name="sindromeOvarioPoliquistico"
-                id="sindromeOvarioPoliquistico"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="intoleranciaLactosa">
-              Intolerancia a la lactosa
-            </label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.intoleranciaLactosa === "Si"}
-                onChange={updateField}
-                name="intoleranciaLactosa"
-                id="intoleranciaLactosa"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.intoleranciaLactosa === "No"}
-                onChange={updateField}
-                name="intoleranciaLactosa"
-                id="intoleranciaLactosa"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="celiaquia">Celiaquía</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.celiaquia === "Si"}
-                onChange={updateField}
-                name="celiaquia"
-                id="celiaquia"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.celiaquia === "No"}
-                onChange={updateField}
-                name="celiaquia"
-                id="celiaquia"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="gastritis">Gastritis</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.gastritis === "Si"}
-                onChange={updateField}
-                name="gastritis"
-                id="gastritis"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.gastritis === "No"}
-                onChange={updateField}
-                name="gastritis"
-                id="gastritis"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="estreñimiento">Estreñimiento</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.estreñimiento === "Si"}
-                onChange={updateField}
-                name="estreñimiento"
-                id="estreñimiento"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.estreñimiento === "No"}
-                onChange={updateField}
-                name="estreñimiento"
-                id="estreñimiento"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="cicloMenstrual">Mujeres.. Ciclo menstrual</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Regular"
-                checked={form.cicloMenstrual === "Regular"}
-                onChange={updateField}
-                name="cicloMenstrual"
-                id="cicloMenstrual"
-              />
-              <span>Regular</span>
-              <InputRadio
-                type="radio"
-                value="Irregular"
-                checked={form.cicloMenstrual === "Irregular"}
-                onChange={updateField}
-                name="cicloMenstrual"
-                id="cicloMenstrual"
-              />{" "}
-              <span>Irregular</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="otros">Otros</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.otros}
+            <select
+              id="molestiaRecurrente"
+              name="molestiaRecurrente"
               onChange={updateField}
-              name="otros"
-              id="otros"
-            />
+              value={form.molestiaRecurrente}
+            >
+              <option value="ninguna">Ninguna</option>
+              <option value="cansancio">Cansancio o falta de energía</option>
+              <option value="fatiga">Fatiga</option>
+              <option value="doloresCabeza">Dolores de cabeza</option>
+              <option value="acidez">Acidez</option>
+              <option value="estrenimiento">Estreñimiento</option>
+              <option value="otro">Otro</option>
+            </select>
           </ContenedorInput>
+          {form.molestiaRecurrente === "otro" && (
+            <ContenedorInput>
+              <label htmlFor="otroMolestiaRecurrente">
+                Otra molestia recurrente:{" "}
+              </label>
+              <InputChico
+                type="text"
+                name="otroMolestiaRecurrente"
+                id="otroMolestiaRecurrente"
+                value={form.otroMolestiaRecurrente}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
           <ContenedorInput>
-            <label htmlFor="intervencionesQuirurjicas">
-              Intervenciones quirúrgicas
+            <label htmlFor="horarioRutinaDiaria">
+              ¿Cómo son tus horarios y tu rutina habitual? (Que hora te
+              despiertas, si trabajas o estudias o de que manera ocupas tu
+              tiempo durante el día, que hora duermes)
             </label>
             <TextArea
               cols="50"
               rows="2"
               type="text"
-              value={form.intervencionesQuirurjicas}
+              value={form.horarioRutinaDiaria}
               onChange={updateField}
-              name="intervencionesQuirurjicas"
-              id="intervencionesQuirurjicas"
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="medicacion">Medicación</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.medicacion}
-              onChange={updateField}
-              name="medicacion"
-              id="medicacion"
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="suplementos">Suplementos</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.suplementos}
-              onChange={updateField}
-              name="suplementos"
-              id="suplementos"
+              name="horarioRutinaDiaria"
+              id="horarioRutinaDiaria"
             />
           </ContenedorInput>
           <ContenedorInput style={{ marginBottom: "20px" }}>
-            <label htmlFor="molestias">Algunas molestias que sienta</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.molestias}
-              onChange={updateField}
-              name="molestias"
-              id="molestias"
-            />
-          </ContenedorInput>
-          <span style={{ fontWeight: "bold" }}>
-            Hábitos - responda SI/NO y antecedentes nutricionales
-          </span>
-          <ContenedorInput style={{ marginTop: "20px", marginBottom: "10px" }}>
-            <label htmlFor="fuma">Fuma</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.fuma === "Si"}
-                onChange={updateField}
-                name="fuma"
-                id="fuma"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.fuma === "No"}
-                onChange={updateField}
-                name="fuma"
-                id="fuma"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="bebidasAlcoholicas">Bebidas alcohólicas</label>
+            <label htmlFor="horasDormir">
+              ¿Cuántas horas duermes en promedio?:{" "}
+            </label>
             <select
-              id="bebidasAlcoholicas"
-              name="bebidasAlcoholicas"
+              id="horasDormir"
+              name="horasDormir"
               onChange={updateField}
-              value={form.bebidasAlcoholicas}
+              value={form.horasDormir}
             >
-              <option value="diario">A Diario</option>
-              <option value="finDeSemanaMucho">
-                Cada fin de semana, mucha cantidad
+              <option value="8hsomas">8 horas o más</option>
+              <option value="6-8hs">6-8 horas</option>
+              <option value="menos6hs">Menos de 6 horas</option>
+              <option value="insomnio">
+                Tengo mucho insomnio o duermo entrecortado
               </option>
-              <option value="finDeSemanaPoca">
-                Cada fin de semana, poca cantidad
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="actividadFisica">
+              ¿Qué tipo de actividad física estás realizando?:{" "}
+            </label>
+            <select
+              id="actividadFisica"
+              name="actividadFisica"
+              onChange={updateField}
+              value={form.actividadFisica}
+            >
+              <option value="gymPesas">Gym (pesas)</option>
+              <option value="gymPesasCardio">Gym (pesas+cardio)</option>
+              <option value="clases">
+                Clases (crossfit, funcional, spinning)
               </option>
-              <option value="unaODosVecesAlMes">1 ó 2 veces al mes</option>
-              <option value="nunca">Nunca</option>
+              <option value="deporte">Deporte</option>
+              <option value="otro">Otro</option>
+            </select>
+          </ContenedorInput>
+          {form.actividadFisica === "deporte" && (
+            <ContenedorInput>
+              <label htmlFor="cualDeporte">Cual deporte: </label>
+              <InputChico
+                type="text"
+                name="cualDeporte"
+                id="cualDeporte"
+                value={form.cualDeporte}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          {form.actividadFisica === "otro" && (
+            <ContenedorInput>
+              <label htmlFor="otroActividadFisica">
+                Otra actividad física:{" "}
+              </label>
+              <InputChico
+                type="text"
+                name="otroActividadFisica"
+                id="otroActividadFisica"
+                value={form.otroActividadFisica}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="frecuenciaAF">
+              Frecuencia de tu actividad física:{" "}
+            </label>
+            <select
+              id="frecuenciaAF"
+              name="frecuenciaAF"
+              onChange={updateField}
+              value={form.frecuenciaAF}
+            >
+              <option value="3vecesomenos">3 veces a la semana o menos</option>
+              <option value="3-5veces">3-5 veces a la semana</option>
+              <option value="5vecesomas">Más de 5 veces a la semana</option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="duracionAF">
+              Duración de tu actividad física por sesión:{" "}
+            </label>
+            <select
+              id="duracionAF"
+              name="duracionAF"
+              onChange={updateField}
+              value={form.duracionAF}
+            >
+              <option value="45-60min">45-60 minutos</option>
+              <option value="60-90min">60-90 minutos</option>
+              <option value="mas90min">Más de 90 minutos</option>
+              <option value="otro">Otro</option>
+            </select>
+          </ContenedorInput>
+          {form.duracionAF === "otro" && (
+            <ContenedorInput>
+              <label htmlFor="otroDuracionAF">Otra duración: </label>
+              <InputChico
+                type="text"
+                name="otroDuracionAF"
+                id="otroDuracionAF"
+                value={form.otroDuracionAF}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="horarioAF">
+              ¿En qué horario sueles realizar con mayor frecuencia tu actividad
+              física?:{" "}
+            </label>
+            <select
+              id="horarioAF"
+              name="horarioAF"
+              onChange={updateField}
+              value={form.horarioAF}
+            >
+              <option value="primeraHora">A primera hora</option>
+              <option value="manana">Por la mañana</option>
+              <option value="mediodia">Mediodía</option>
+              <option value="siesta">Siesta o media tarde</option>
+              <option value="tarde">Tarde</option>
+              <option value="noche">Noche</option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="calidadAlimentacion">
+              En cuanto a la calidad de tu alimentación. ¿En qué punto dirías
+              que te encuentras hoy?:{" "}
+            </label>
+            <select
+              id="calidadAlimentacion"
+              name="calidadAlimentacion"
+              onChange={updateField}
+              value={form.calidadAlimentacion}
+            >
+              <option value="poco">
+                POCO que mejorar, la mayor parte del tiempo consumo alimentos de
+                calidad nutricional
+              </option>
+              <option value="bastante">
+                BASTANTE que mejorar, diría que estoy en un 50-50%
+              </option>
+              <option value="mucho">
+                MUCHO que mejorar, diariamente consumo alimentos de bajo valor y
+                calidad nutricional
+              </option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="organizacionPlanificacion">
+              En cuanto a la organización y planificación. ¿En qué punto dirías
+              que te encuentras hoy?:{" "}
+            </label>
+            <select
+              id="organizacionPlanificacion"
+              name="organizacionPlanificacion"
+              onChange={updateField}
+              value={form.organizacionPlanificacion}
+            >
+              <option value="poco">
+                POCO que mejorar, me considero organizado, planifico las cosas
+                que quiero realizar
+              </option>
+              <option value="bastante">
+                BASTANTE que mejorar, diría que estoy en un 50-50%
+              </option>
+              <option value="mucho">
+                MUCHO que mejorar, vivo improvisando
+              </option>
             </select>
           </ContenedorInput>
           <ContenedorInput>
-            <label htmlFor="alergiasAlimentarias">
-              Alimentos que le caen mal - alergias alimentarias
+            <label htmlFor="alimentoNoConsumible">
+              En cuanto a la selección de alimentos. ¿Hay algún alimento/s que
+              no consumas?
             </label>
             <TextArea
               cols="50"
               rows="2"
               type="text"
-              value={form.alergiasAlimentarias}
+              value={form.alimentoNoConsumible}
               onChange={updateField}
-              name="alergiasAlimentarias"
-              id="alergiasAlimentarias"
+              name="alimentoNoConsumible"
+              id="alimentoNoConsumible"
             />
           </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="alimentosQueNoLeGustan">
-              Alimentos que no le gustan
-            </label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.alimentosQueNoLeGustan}
-              onChange={updateField}
-              name="alimentosQueNoLeGustan"
-              id="alimentosQueNoLeGustan"
-            />
-          </ContenedorInput>
-          <ContenedorInput style={{ marginTop: "10px" }}>
-            <label htmlFor="preferencia">Preferencia de dulces o salados</label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="dulces"
-                checked={form.preferencia === "dulces"}
-                onChange={updateField}
-                name="preferencia"
-                id="preferencia"
-              />
-              <span>Dulces</span>
-              <InputRadio
-                type="radio"
-                value="salados"
-                checked={form.preferencia === "salados"}
-                onChange={updateField}
-                name="preferencia"
-                id="preferencia"
-              />{" "}
-              <span>Salados</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="rutinaActividadDiaria">
-              Rutina de actividad diaria
-            </label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.rutinaActividadDiaria}
-              onChange={updateField}
-              name="rutinaActividadDiaria"
-              id="rutinaActividadDiaria"
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="trabajaEstudia">Trabaja? Estudia?</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="trabajaEstudia"
-              id="trabajaEstudia"
-              value={form.trabajaEstudia}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="horarioRutina">Horario</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="horarioRutina"
-              id="horarioRutina"
-              value={form.horarioRutina}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="horaDespertar">Se despierta a las</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="horaDespertar"
-              id="horaDespertar"
-              value={form.horaDespertar}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="cantidadComidasAlDia">
-              Cuantas comidas hace al día
-            </label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="cantidadComidasAlDia"
-              id="cantidadComidasAlDia"
-              value={form.cantidadComidasAlDia}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="dondeCome">¿Dónde come?</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="dondeCome"
-              id="dondeCome"
-              value={form.dondeCome}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="conQuienCome">¿Con quién come?</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="conQuienCome"
-              id="conQuienCome"
-              value={form.conQuienCome}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="responsableComidas">
-              ¿Quién prepara las comidas?
-            </label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="responsableComidas"
-              id="responsableComidas"
-              value={form.responsableComidas}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="compra">¿Compra?</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              name="compra"
-              id="compra"
-              value={form.compra}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput style={{ marginTop: "10px", marginBottom: "20px" }}>
-            <label htmlFor="comeEntreHoras">
-              ¿Come entre horas? (picoteos)
-            </label>
-            <ContenedorInputRadio>
-              <InputRadio
-                type="radio"
-                value="Si"
-                checked={form.comeEntreHoras === "Si"}
-                onChange={updateField}
-                name="comeEntreHoras"
-                id="comeEntreHoras"
-              />
-              <span>Si</span>
-              <InputRadio
-                type="radio"
-                value="No"
-                checked={form.comeEntreHoras === "No"}
-                onChange={updateField}
-                name="comeEntreHoras"
-                id="comeEntreHoras"
-              />{" "}
-              <span>No</span>
-            </ContenedorInputRadio>
-          </ContenedorInput>
-
-          <span style={{ fontWeight: "bold" }}>Actividad física actual</span>
           <ContenedorInput style={{ marginBottom: "20px" }}>
-            <label htmlFor="actividadFisica">Días - horario - duración</label>
+            <label htmlFor="habilidadCocina">
+              Tu desenvolvimiento en la cocina:{" "}
+            </label>
+            <select
+              id="habilidadCocina"
+              name="habilidadCocina"
+              onChange={updateField}
+              value={form.habilidadCocina}
+            >
+              <option value="malo">Malo, soy un peligro en la cocina</option>
+              <option value="quieroAprender">Malo pero quiero aprender</option>
+              <option value="meDefiendo">Me defiendo</option>
+              <option value="meGusta">
+                Me gusta cocinar o lo hago con frecuencia
+              </option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="organizarAlmuerzosCenas">
+              ¿Cómo te gustaría organizarte con los almuerzos y las cenas?:{" "}
+            </label>
+            <select
+              id="organizarAlmuerzosCenas"
+              name="organizarAlmuerzosCenas"
+              onChange={updateField}
+              value={form.organizarAlmuerzosCenas}
+            >
+              <option value="recetasMomento">
+                Recetas para cocinar en el momento
+              </option>
+              <option value="opcionesCompra">
+                Opciones para comprar directamente
+              </option>
+              <option value="cocinar2o3dias">
+                Quiero cocinar para 2 a 3 días, así llegar o llevar y comer
+                directamente
+              </option>
+              <option value="almuerzoSemanaCenasMomento">
+                Quiero preparar de una vez el almuerzo para toda la semana y las
+                cenas preparar en el momento.
+              </option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "30px" }}>
+            <label htmlFor="suplementoConsiderado">
+              ¿Estás considerando utilizar algún suplemento? Coméntame cuál y
+              con qué finalidad, con tus palabras:{" "}
+            </label>
             <TextArea
               cols="50"
               rows="2"
               type="text"
-              name="actividadFisica"
-              value={form.actividadFisica}
+              value={form.suplementoConsiderado}
               onChange={updateField}
-              id="actividadFisica"
+              name="suplementoConsiderado"
+              id="suplementoConsiderado"
             />
           </ContenedorInput>
-
-          <span style={{ fontWeight: "bold", display: "block" }}>
-            Recordatorio de 24 hs
-          </span>
           <span>
-            Describa todo lo que consumió de ayer a hoy, especificando
-            cantidades.
+            Dame ejemplos de lo que sueles consumir en cada comida para que yo
+            pueda seleccionar menùes que no se alejen mucho de lo que
+            acostumbras a comer.
           </span>
           <ContenedorInput>
-            <label htmlFor="desayuno">Desayuno</label>
+            <label htmlFor="desayuno">Desayuno: </label>
             <TextArea
               cols="50"
               rows="2"
@@ -1367,19 +1061,7 @@ const Formulario = ({ paciente }) => {
             />
           </ContenedorInput>
           <ContenedorInput>
-            <label htmlFor="colacion">Colación</label>
-            <TextArea
-              cols="50"
-              rows="2"
-              type="text"
-              value={form.colacion}
-              onChange={updateField}
-              name="colacion"
-              id="colacion"
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="almuerzo">Almuerzo</label>
+            <label htmlFor="almuerzo">Almuerzo: </label>
             <TextArea
               cols="50"
               rows="2"
@@ -1391,7 +1073,7 @@ const Formulario = ({ paciente }) => {
             />
           </ContenedorInput>
           <ContenedorInput>
-            <label htmlFor="merienda">Merienda</label>
+            <label htmlFor="merienda">Merienda: </label>
             <TextArea
               cols="50"
               rows="2"
@@ -1403,7 +1085,7 @@ const Formulario = ({ paciente }) => {
             />
           </ContenedorInput>
           <ContenedorInput style={{ marginBottom: "20px" }}>
-            <label htmlFor="cena">Cena</label>
+            <label htmlFor="cena">Cena: </label>
             <TextArea
               cols="50"
               rows="2"
@@ -1414,12 +1096,58 @@ const Formulario = ({ paciente }) => {
               id="cena"
             />
           </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="loPeorAlimentacion">
+              ¿Qué dirías que es lo peor de tu alimentación hoy en día?:{" "}
+            </label>
+            <TextArea
+              cols="50"
+              rows="2"
+              type="text"
+              value={form.loPeorAlimentacion}
+              onChange={updateField}
+              name="loPeorAlimentacion"
+              id="loPeorAlimentacion"
+            />
+          </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="loMejorHabitos">
+              ¿Qué dirías que es lo mejor o algunos hábitos saludables que ya
+              tienes incorporados?:{" "}
+            </label>
+            <TextArea
+              cols="50"
+              rows="2"
+              type="text"
+              value={form.loMejorHabitos}
+              onChange={updateField}
+              name="loMejorHabitos"
+              id="loMejorHabitos"
+            />
+          </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="algunComentario">
+              Algún comentario relevante que no hayamos tocado hasta ahora y me
+              quieras hacer saber:{" "}
+            </label>
+            <TextArea
+              cols="50"
+              rows="2"
+              type="text"
+              value={form.algunComentario}
+              onChange={updateField}
+              name="algunComentario"
+              id="algunComentario"
+            />
+          </ContenedorInput>
 
           <span>
-            <span style={{ fontWeight: "bold" }}>Recordatorio:</span> Enviar vía
-            whatsapp último análisis de laboratorio.
+            En cuanto a tu evaluación de composición actual, voy a necesitar que
+            al terminar este cuestionario, te dirijas al whatsapp y me digas
+            "estoy listo para la evaluación". Así podré asesorarte de cómo
+            llevaremos acabo este punto.
           </span>
-          <ContenedorInput>
+          <ContenedorInput style={{ marginTop: "20px" }}>
             <Buton type="submit" primario="true">
               {paciente ? "Editar" : "Enviar"}
             </Buton>
