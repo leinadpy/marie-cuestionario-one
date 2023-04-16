@@ -19,53 +19,51 @@ const Formulario = ({ paciente }) => {
     nombreYApellido: "",
     fechaDeNacimiento: "",
     edad: "",
+    documento: "",
+    sexo: "",
+    pais: "",
     ciudad: "",
     telefono: "",
     correo: "",
+    profesion: "",
     hijos: "",
     conQuienVive: "",
-    motivoConsulta: "",
-    fechaPeso: "",
     peso: "",
     estatura: "",
-    enfCardiacas: "",
-    diabetes: "",
-    presionAlta: "",
-    asma: "",
-    alergias: "",
-    hipoHiperTiroidismo: "",
-    sindromeOvarioPoliquistico: "",
-    intoleranciaLactosa: "",
-    celiaquia: "",
-    gastritis: "",
-    estreñimiento: "",
-    cicloMenstrual: "",
-    otros: "",
-    intervencionesQuirurjicas: "",
-    medicacion: "",
-    suplementos: "",
-    molestias: "",
-    fuma: "",
-    bebidasAlcoholicas: "nunca",
-    alergiasAlimentarias: "",
-    alimentosQueNoLeGustan: "",
-    preferencia: "",
-    rutinaActividadDiaria: "",
-    trabajaEstudia: "",
-    horarioRutina: "",
-    horaDespertar: "",
-    cantidadComidasAlDia: "",
-    dondeCome: "",
-    conQuienCome: "",
-    responsableComidas: "",
-    compra: "",
-    comeEntreHoras: "",
+    imc: "",
+    patologiaBase: "",
+    otroPatologiaBase: "",
+    intoleranciaOAlergia: "",
+    otroIntoleranciaOAlergia: "",
+    medicamento: "",
+    cualMedicamento: "",
+    suplemento: "",
+    cualSuplemento: "",
+    conductaAlimentaria: "",
+    objetivo: "",
+    molestiaRecurrente: "",
+    otroMolestiaRecurrente: "",
+    horarioRutinaDiaria: "",
+    horasDormir: "",
     actividadFisica: "",
+    otroActividadFisica: "",
+    frecuenciaAF: "",
+    duracionAF: "",
+    otroDuracionAF: "",
+    horarioAF: "",
+    calidadAlimentacion: "",
+    organizacionPlanificacion: "",
+    alimentoNoConsumible: "",
+    habilidadCocina: "",
+    organizarAlmuerzosCenas: "",
+    suplementoConsiderado: "",
     desayuno: "",
-    colacion: "",
     almuerzo: "",
     merienda: "",
     cena: "",
+    loPeorAlimentacion: "",
+    loMejorHabitos: "",
+    algunComentario: "",
   });
   const [alerta, setAlerta] = useState({});
   const [estadoAlerta, setEstadoAlerta] = useState(false);
@@ -78,53 +76,51 @@ const Formulario = ({ paciente }) => {
         nombreYApellido: paciente.data().nombreYApellido,
         fechaDeNacimiento: paciente.data().fechaDeNacimiento,
         edad: paciente.data().edad,
+        documento: paciente.data().documento,
+        sexo: paciente.data().sexo,
+        pais: paciente.data().pais,
         ciudad: paciente.data().ciudad,
         telefono: paciente.data().telefono,
         correo: paciente.data().correo,
+        profesion: paciente.data().profesion,
         hijos: paciente.data().hijos,
         conQuienVive: paciente.data().conQuienVive,
-        motivoConsulta: paciente.data().motivoConsulta,
-        fechaPeso: paciente.data().fechaPeso ? paciente.data().fechaPeso : "",
         peso: paciente.data().peso ? paciente.data().peso : "",
         estatura: paciente.data().estatura ? paciente.data().estatura : "",
-        enfCardiacas: paciente.data().enfCardiacas,
-        diabetes: paciente.data().diabetes,
-        presionAlta: paciente.data().presionAlta,
-        asma: paciente.data().asma,
-        alergias: paciente.data().alergias,
-        hipoHiperTiroidismo: paciente.data().hipoHiperTiroidismo,
-        sindromeOvarioPoliquistico: paciente.data().sindromeOvarioPoliquistico,
-        intoleranciaLactosa: paciente.data().intoleranciaLactosa,
-        celiaquia: paciente.data().celiaquia,
-        gastritis: paciente.data().gastritis,
-        estreñimiento: paciente.data().estreñimiento,
-        cicloMenstrual: paciente.data().cicloMenstrual,
-        otros: paciente.data().otros,
-        intervencionesQuirurjicas: paciente.data().intervencionesQuirurjicas,
-        medicacion: paciente.data().medicacion,
-        suplementos: paciente.data().suplementos,
-        molestias: paciente.data().molestias,
-        fuma: paciente.data().fuma,
-        bebidasAlcoholicas: paciente.data().bebidasAlcoholicas,
-        alergiasAlimentarias: paciente.data().alergiasAlimentarias,
-        alimentosQueNoLeGustan: paciente.data().alimentosQueNoLeGustan,
-        preferencia: paciente.data().preferencia,
-        rutinaActividadDiaria: paciente.data().rutinaActividadDiaria,
-        trabajaEstudia: paciente.data().trabajaEstudia,
-        horarioRutina: paciente.data().horarioRutina,
-        horaDespertar: paciente.data().horaDespertar,
-        cantidadComidasAlDia: paciente.data().cantidadComidasAlDia,
-        dondeCome: paciente.data().dondeCome,
-        conQuienCome: paciente.data().conQuienCome,
-        responsableComidas: paciente.data().responsableComidas,
-        compra: paciente.data().compra,
-        comeEntreHoras: paciente.data().comeEntreHoras,
+        imc: paciente.data().imc,
+        patologiaBase: paciente.data().patologiaBase,
+        otroPatologiaBase: paciente.data().otroPatologiaBase,
+        intoleranciaOAlergia: paciente.data().intoleranciaOAlergia,
+        otroIntoleranciaOAlergia: paciente.data().otroIntoleranciaOAlergia,
+        medicamento: paciente.data().medicamento,
+        cualMedicamento: paciente.data().cualMedicamento,
+        suplemento: paciente.data().suplemento,
+        cualSuplemento: paciente.data().cualSuplemento,
+        conductaAlimentaria: paciente.data().conductaAlimentaria,
+        objetivo: paciente.data().objetivo,
+        molestiaRecurrente: paciente.data().molestiaRecurrente,
+        otroMolestiaRecurrente: paciente.data().otroMolestiaRecurrente,
+        horarioRutinaDiaria: paciente.data().horarioRutinaDiaria,
+        horasDormir: paciente.data().horasDormir,
         actividadFisica: paciente.data().actividadFisica,
+        otroActividadFisica: paciente.data().otroActividadFisica,
+        frecuenciaAF: paciente.data().frecuenciaAF,
+        duracionAF: paciente.data().duracionAF,
+        otroDuracionAF: paciente.data().otroDuracionAF,
+        horarioAF: paciente.data().horarioAF,
+        calidadAlimentacion: paciente.data().calidadAlimentacion,
+        organizacionPlanificacion: paciente.data().organizacionPlanificacion,
+        alimentoNoConsumible: paciente.data().alimentoNoConsumible,
+        habilidadCocina: paciente.data().habilidadCocina,
+        organizarAlmuerzosCenas: paciente.data().organizarAlmuerzosCenas,
+        suplementoConsiderado: paciente.data().suplementoConsiderado,
         desayuno: paciente.data().desayuno,
-        colacion: paciente.data().colacion,
         almuerzo: paciente.data().almuerzo,
         merienda: paciente.data().merienda,
         cena: paciente.data().cena,
+        loPeorAlimentacion: paciente.data().loPeorAlimentacion,
+        loMejorHabitos: paciente.data().loMejorHabitos,
+        algunComentario: paciente.data().algunComentario,
       });
     }
   }, [paciente]);
@@ -146,6 +142,18 @@ const Formulario = ({ paciente }) => {
     });
   };
 
+  const calcularIMC = () => {
+    const peso = parseInt(form.peso);
+    const estatura = parseInt(form.estatura) / 100;
+    if (!peso || !estatura) return;
+
+    const imc = (peso / estatura).toFixed(1);
+    setForm({
+      ...form,
+      imc: imc,
+    });
+  };
+
   const handleReset = (e) => {
     e.preventDefault();
     setForm({
@@ -153,53 +161,51 @@ const Formulario = ({ paciente }) => {
       nombreYApellido: "",
       fechaDeNacimiento: "",
       edad: "",
+      documento: "",
+      sexo: "",
+      pais: "",
       ciudad: "",
       telefono: "",
       correo: "",
+      profesion: "",
       hijos: "",
       conQuienVive: "",
-      motivoConsulta: "",
-      fechaPeso: "",
       peso: "",
       estatura: "",
-      enfCardiacas: "",
-      diabetes: "",
-      presionAlta: "",
-      asma: "",
-      alergias: "",
-      hipoHiperTiroidismo: "",
-      sindromeOvarioPoliquistico: "",
-      intoleranciaLactosa: "",
-      celiaquia: "",
-      gastritis: "",
-      estreñimiento: "",
-      cicloMenstrual: "",
-      otros: "",
-      intervencionesQuirurjicas: "",
-      medicacion: "",
-      suplementos: "",
-      molestias: "",
-      fuma: "",
-      bebidasAlcoholicas: "",
-      alergiasAlimentarias: "",
-      alimentosQueNoLeGustan: "",
-      preferencia: "",
-      rutinaActividadDiaria: "",
-      trabajaEstudia: "",
-      horarioRutina: "",
-      horaDespertar: "",
-      cantidadComidasAlDia: "",
-      dondeCome: "",
-      conQuienCome: "",
-      responsableComidas: "",
-      compra: "",
-      comeEntreHoras: "",
+      imc: "",
+      patologiaBase: "",
+      otroPatologiaBase: "",
+      intoleranciaOAlergia: "",
+      otroIntoleranciaOAlergia: "",
+      medicamento: "",
+      cualMedicamento: "",
+      suplemento: "",
+      cualSuplemento: "",
+      conductaAlimentaria: "",
+      objetivo: "",
+      molestiaRecurrente: "",
+      otroMolestiaRecurrente: "",
+      horarioRutinaDiaria: "",
+      horasDormir: "",
       actividadFisica: "",
+      otroActividadFisica: "",
+      frecuenciaAF: "",
+      duracionAF: "",
+      otroDuracionAF: "",
+      horarioAF: "",
+      calidadAlimentacion: "",
+      organizacionPlanificacion: "",
+      alimentoNoConsumible: "",
+      habilidadCocina: "",
+      organizarAlmuerzosCenas: "",
+      suplementoConsiderado: "",
       desayuno: "",
-      colacion: "",
       almuerzo: "",
       merienda: "",
       cena: "",
+      loPeorAlimentacion: "",
+      loMejorHabitos: "",
+      algunComentario: "",
     });
   };
 
@@ -210,6 +216,7 @@ const Formulario = ({ paciente }) => {
     if (
       form.nombreYApellido !== "" ||
       form.fechaDeNacimiento !== "" ||
+      form.pais !== "" ||
       form.ciudad !== "" ||
       form.telefono !== ""
     ) {
@@ -220,53 +227,51 @@ const Formulario = ({ paciente }) => {
           nombreYApellido: form.nombreYApellido,
           fechaDeNacimiento: form.fechaDeNacimiento,
           edad: form.edad,
+          documento: form.documento,
+          sexo: form.sexo,
+          pais: form.pais,
           ciudad: form.ciudad,
           telefono: form.telefono,
           correo: form.correo,
+          profesion: form.profesion,
           hijos: form.hijos,
           conQuienVive: form.conQuienVive,
-          motivoConsulta: form.motivoConsulta,
-          fechaPeso: form.fechaPeso ? form.fechaPeso : "",
           peso: form.peso ? form.peso : "",
           estatura: form.estatura ? form.estatura : "",
-          enfCardiacas: form.enfCardiacas,
-          diabetes: form.diabetes,
-          presionAlta: form.presionAlta,
-          asma: form.asma,
-          alergias: form.alergias,
-          hipoHiperTiroidismo: form.hipoHiperTiroidismo,
-          sindromeOvarioPoliquistico: form.sindromeOvarioPoliquistico,
-          intoleranciaLactosa: form.intoleranciaLactosa,
-          celiaquia: form.celiaquia,
-          gastritis: form.gastritis,
-          estreñimiento: form.estreñimiento,
-          cicloMenstrual: form.cicloMenstrual,
-          otros: form.otros,
-          intervencionesQuirurjicas: form.intervencionesQuirurjicas,
-          medicacion: form.medicacion,
-          suplementos: form.suplementos,
-          molestias: form.molestias,
-          fuma: form.fuma,
-          bebidasAlcoholicas: form.bebidasAlcoholicas,
-          alergiasAlimentarias: form.alergiasAlimentarias,
-          alimentosQueNoLeGustan: form.alimentosQueNoLeGustan,
-          preferencia: form.preferencia,
-          rutinaActividadDiaria: form.rutinaActividadDiaria,
-          trabajaEstudia: form.trabajaEstudia,
-          horarioRutina: form.horarioRutina,
-          horaDespertar: form.horaDespertar,
-          cantidadComidasAlDia: form.cantidadComidasAlDia,
-          dondeCome: form.dondeCome,
-          conQuienCome: form.conQuienCome,
-          responsableComidas: form.responsableComidas,
-          compra: form.compra,
-          comeEntreHoras: form.comeEntreHoras,
+          imc: form.imc,
+          patologiaBase: form.patologiaBase,
+          otroPatologiaBase: form.otroPatologiaBase,
+          intoleranciaOAlergia: form.intoleranciaOAlergia,
+          otroIntoleranciaOAlergia: form.otroIntoleranciaOAlergia,
+          medicamento: form.medicamento,
+          cualMedicamento: form.cualMedicamento,
+          suplemento: form.suplemento,
+          cualSuplemento: form.cualSuplemento,
+          conductaAlimentaria: form.conductaAlimentaria,
+          objetivo: form.objetivo,
+          molestiaRecurrente: form.molestiaRecurrente,
+          otroMolestiaRecurrente: form.otroMolestiaRecurrente,
+          horarioRutinaDiaria: form.horarioRutinaDiaria,
+          horasDormir: form.horasDormir,
           actividadFisica: form.actividadFisica,
+          otroActividadFisica: form.otroActividadFisica,
+          frecuenciaAF: form.frecuenciaAF,
+          duracionAF: form.duracionAF,
+          otroDuracionAF: form.otroDuracionAF,
+          horarioAF: form.horarioAF,
+          calidadAlimentacion: form.calidadAlimentacion,
+          organizacionPlanificacion: form.organizacionPlanificacion,
+          alimentoNoConsumible: form.alimentoNoConsumible,
+          habilidadCocina: form.habilidadCocina,
+          organizarAlmuerzosCenas: form.organizarAlmuerzosCenas,
+          suplementoConsiderado: form.suplementoConsiderado,
           desayuno: form.desayuno,
-          colacion: form.colacion,
           almuerzo: form.almuerzo,
           merienda: form.merienda,
           cena: form.cena,
+          loPeorAlimentacion: form.loPeorAlimentacion,
+          loMejorHabitos: form.loMejorHabitos,
+          algunComentario: form.algunComentario,
         })
           .then(() => {
             history.push("/pacientes");
@@ -284,53 +289,48 @@ const Formulario = ({ paciente }) => {
           nombreYApellido: form.nombreYApellido,
           fechaDeNacimiento: form.fechaDeNacimiento,
           edad: form.edad,
+          documento: form.documento,
+          sexo: form.sexo,
+          pais: form.pais,
           ciudad: form.ciudad,
           telefono: form.telefono,
           correo: form.correo,
+          profesion: form.profesion,
           hijos: form.hijos,
           conQuienVive: form.conQuienVive,
-          motivoConsulta: form.motivoConsulta,
-          fechaPeso: form.fechaPeso,
           peso: form.peso,
           estatura: form.estatura,
-          enfCardiacas: form.enfCardiacas,
-          diabetes: form.diabetes,
-          presionAlta: form.presionAlta,
-          asma: form.asma,
-          alergias: form.alergias,
-          hipoHiperTiroidismo: form.hipoHiperTiroidismo,
-          sindromeOvarioPoliquistico: form.sindromeOvarioPoliquistico,
-          intoleranciaLactosa: form.intoleranciaLactosa,
-          celiaquia: form.celiaquia,
-          gastritis: form.gastritis,
-          estreñimiento: form.estreñimiento,
-          cicloMenstrual: form.cicloMenstrual,
-          otros: form.otros,
-          intervencionesQuirurjicas: form.intervencionesQuirurjicas,
-          medicacion: form.medicacion,
-          suplementos: form.suplementos,
-          molestias: form.molestias,
-          fuma: form.fuma,
-          bebidasAlcoholicas: form.bebidasAlcoholicas,
-          alergiasAlimentarias: form.alergiasAlimentarias,
-          alimentosQueNoLeGustan: form.alimentosQueNoLeGustan,
-          preferencia: form.preferencia,
-          rutinaActividadDiaria: form.rutinaActividadDiaria,
-          trabajaEstudia: form.trabajaEstudia,
-          horarioRutina: form.horarioRutina,
-          horaDespertar: form.horaDespertar,
-          cantidadComidasAlDia: form.cantidadComidasAlDia,
-          dondeCome: form.dondeCome,
-          conQuienCome: form.conQuienCome,
-          responsableComidas: form.responsableComidas,
-          compra: form.compra,
-          comeEntreHoras: form.comeEntreHoras,
+          imc: form.imc,
+          patologiaBase: form.patologiaBase,
+          otroPatologiaBase: form.otroPatologiaBase,
+          intoleranciaOAlergia: form.intoleranciaOAlergia,
+          otroIntoleranciaOAlergia: form.otroIntoleranciaOAlergia,
+          medicamento: form.medicamento,
+          cualMedicamento: form.cualMedicamento,
+          suplemento: form.suplemento,
+          cualSuplemento: form.cualSuplemento,
+          conductaAlimentaria: form.conductaAlimentaria,
+          objetivo: form.objetivo,
+          molestiaRecurrente: form.molestiaRecurrente,
+          otroMolestiaRecurrente: form.otroMolestiaRecurrente,
+          horarioRutinaDiaria: form.horarioRutinaDiaria,
+          horasDormir: form.horasDormir,
           actividadFisica: form.actividadFisica,
+          otroActividadFisica: form.otroActividadFisica,
+          frecuenciaAF: form.frecuenciaAF,
+          duracionAF: form.duracionAF,
+          otroDuracionAF: form.otroDuracionAF,
+          horarioAF: form.horarioAF,
+          calidadAlimentacion: form.calidadAlimentacion,
+          organizacionPlanificacion: form.organizacionPlanificacion,
+          suplementoConsiderado: form.suplementoConsiderado,
           desayuno: form.desayuno,
-          colacion: form.colacion,
           almuerzo: form.almuerzo,
           merienda: form.merienda,
           cena: form.cena,
+          loPeorAlimentacion: form.loPeorAlimentacion,
+          loMejorHabitos: form.loMejorHabitos,
+          algunComentario: form.algunComentario,
         })
           .then(() => {
             setForm({
@@ -338,53 +338,51 @@ const Formulario = ({ paciente }) => {
               nombreYApellido: "",
               fechaDeNacimiento: "",
               edad: "",
+              documento: "",
+              sexo: "",
+              pais: "",
               ciudad: "",
               telefono: "",
               correo: "",
+              profesion: "",
               hijos: "",
               conQuienVive: "",
-              motivoConsulta: "",
-              fechaPeso: "",
               peso: "",
               estatura: "",
-              enfCardiacas: "",
-              diabetes: "",
-              presionAlta: "",
-              asma: "",
-              alergias: "",
-              hipoHiperTiroidismo: "",
-              sindromeOvarioPoliquistico: "",
-              intoleranciaLactosa: "",
-              celiaquia: "",
-              gastritis: "",
-              estreñimiento: "",
-              cicloMenstrual: "",
-              otros: "",
-              intervencionesQuirurjicas: "",
-              medicacion: "",
-              suplementos: "",
-              molestias: "",
-              fuma: "",
-              bebidasAlcoholicas: "",
-              alergiasAlimentarias: "",
-              alimentosQueNoLeGustan: "",
-              preferencia: "",
-              rutinaActividadDiaria: "",
-              trabajaEstudia: "",
-              horarioRutina: "",
-              horaDespertar: "",
-              cantidadComidasAlDia: "",
-              dondeCome: "",
-              conQuienCome: "",
-              responsableComidas: "",
-              compra: "",
-              comeEntreHoras: "",
+              imc: "",
+              patologiaBase: "",
+              otroPatologiaBase: "",
+              intoleranciaOAlergia: "",
+              otroIntoleranciaOAlergia: "",
+              medicamento: "",
+              cualMedicamento: "",
+              suplemento: "",
+              cualSuplemento: "",
+              conductaAlimentaria: "",
+              objetivo: "",
+              molestiaRecurrente: "",
+              otroMolestiaRecurrente: "",
+              horarioRutinaDiaria: "",
+              horasDormir: "",
               actividadFisica: "",
+              otroActividadFisica: "",
+              frecuenciaAF: "",
+              duracionAF: "",
+              otroDuracionAF: "",
+              horarioAF: "",
+              calidadAlimentacion: "",
+              organizacionPlanificacion: "",
+              alimentoNoConsumible: "",
+              habilidadCocina: "",
+              organizarAlmuerzosCenas: "",
+              suplementoConsiderado: "",
               desayuno: "",
-              colacion: "",
               almuerzo: "",
               merienda: "",
               cena: "",
+              loPeorAlimentacion: "",
+              loMejorHabitos: "",
+              algunComentario: "",
             });
             setEstadoAlerta(true);
             setAlerta({
@@ -453,7 +451,39 @@ const Formulario = ({ paciente }) => {
             />
           </ContenedorInput>
           <ContenedorInput>
-            <label htmlFor="ciudad">Ciudad donde vive: </label>
+            <label htmlFor="ciudad">CI / DNI: </label>
+            <InputChico
+              type="text"
+              name="documento"
+              id="documento"
+              value={form.documento}
+              onChange={updateField}
+            />
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="sexo">Sexo: </label>
+            <select
+              id="sexo"
+              name="sexo"
+              onChange={updateField}
+              value={form.sexo}
+            >
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="pais">País: </label>
+            <InputChico
+              type="text"
+              name="pais"
+              id="pais"
+              value={form.pais}
+              onChange={updateField}
+            />
+          </ContenedorInput>
+          <ContenedorInput>
+            <label htmlFor="ciudad">Ciudad: </label>
             <InputChico
               type="text"
               name="ciudad"
@@ -483,74 +513,233 @@ const Formulario = ({ paciente }) => {
             />
           </ContenedorInput>
           <ContenedorInput>
-            <label htmlFor="hijos">Hijos: </label>
+            <label htmlFor="correo">Profesión / Ocupación: </label>
             <InputChico
               type="text"
-              name="hijos"
-              id="hijos"
-              value={form.hijos}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput>
-            <label htmlFor="conQuienVive">Con quien vive: </label>
-            <InputChico
-              type="text"
-              name="conQuienVive"
-              id="conQuienVive"
-              value={form.conQuienVive}
+              name="profesion"
+              id="profesion"
+              value={form.profesion}
               onChange={updateField}
             />
           </ContenedorInput>
           <ContenedorInput style={{ marginBottom: "20px" }}>
-            <label htmlFor="motivoConsulta">Motivo de consulta: </label>
-            <TextArea
-              rows="2"
-              type="text"
-              name="motivoConsulta"
-              id="motivoConsulta"
-              value={form.motivoConsulta}
-              onChange={updateField}
-            />
-          </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
-            <label htmlFor="fechaPeso">Última vez que se pesó</label>
+            <label htmlFor="hijos">N° de hijos: </label>
             <select
-              id="fechaPeso"
-              name="fechaPeso"
+              id="hijos"
+              name="hijos"
               onChange={updateField}
-              value={form.fechaPeso}
+              value={form.hijos}
             >
-              <option value="mes">Hace 1 mes o menos</option>
-              <option value="tresmeses">De 1 mes a 3 meses</option>
-              <option value="seismeses">De 3 meses a 6 meses</option>
-              <option value="masseismeses">Más de 6 meses</option>
+              <option value="0">0</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="conQuienVive">Con quién vive: </label>
+            <select
+              id="conQuienVive"
+              name="conQuienVive"
+              onChange={updateField}
+              value={form.conQuienVive}
+            >
+              <option value="solo">Solo</option>
+              <option value="pareja">Pareja o Roomate</option>
+              <option value="familia">Familia o más personas</option>
             </select>
           </ContenedorInput>
           <ContenedorInput>
             <label htmlFor="peso">Peso (kg): </label>
             <InputChico
-              type="text"
+              type="number"
               name="peso"
               id="peso"
               value={form.peso}
               onChange={updateField}
+              onBlur={calcularIMC}
             />
           </ContenedorInput>
           <ContenedorInput>
             <label htmlFor="estatura">Estatura (cm): </label>
             <InputChico
-              type="text"
+              type="number"
               name="estatura"
               id="estatura"
               value={form.estatura}
               onChange={updateField}
+              onBlur={calcularIMC}
             />
           </ContenedorInput>
-          <span style={{ fontWeight: "bold" }}>
-            Patologías y enfermedades de base a tener en cuenta o antecedentes
-            familiares
-          </span>
+          <ContenedorInput>
+            <label htmlFor="imc">IMC (peso/estatura): </label>
+            <InputChico
+              type="text"
+              name="imc"
+              id="imc"
+              readOnly
+              value={form.imc}
+            />
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="patologiaBase">Patología de base: </label>
+            <select
+              id="patologiaBase"
+              name="patologiaBase"
+              onChange={updateField}
+              value={form.patologiaBase}
+            >
+              <option value="ninguna">Ninguna</option>
+              <option value="hipertension">
+                Hipertensión arterial o enfermedades cardiacas
+              </option>
+              <option value="diabetes">Diabetes</option>
+              <option value="enfRenal">Enfermedad Renal</option>
+              <option value="hipotiroidismo">Hipotiroidismo</option>
+              <option value="sindOvario">
+                Síndrome de ovario poliquístico
+              </option>
+              <option value="otro">Otro</option>
+            </select>
+          </ContenedorInput>
+          {form.patologiaBase === "otro" && (
+            <ContenedorInput>
+              <label htmlFor="otroPatologiaBase">Otra patología: </label>
+              <InputChico
+                type="text"
+                name="otroPatologiaBase"
+                id="otroPatologiaBase"
+                value={form.otroPatologiaBase}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="intoleranciaOAlergia">
+              Alguna intolerancia o alergia alimentaria:{" "}
+            </label>
+            <select
+              id="intoleranciaOAlergia"
+              name="intoleranciaOAlergia"
+              onChange={updateField}
+              value={form.intoleranciaOAlergia}
+            >
+              <option value="ninguna">Ninguna</option>
+              <option value="celiaquia">Celiaquía</option>
+              <option value="gluten">Intolerancia al gluten</option>
+              <option value="lactosa">Intolerancia a la lactosa</option>
+              <option value="pescados">Pescados</option>
+              <option value="otro">Otro</option>
+            </select>
+          </ContenedorInput>
+          {form.intoleranciaOAlergia === "otro" && (
+            <ContenedorInput>
+              <label htmlFor="otroIntoleranciaOAlergia">
+                Otra intolerancia o alergia:{" "}
+              </label>
+              <InputChico
+                type="text"
+                name="otroIntoleranciaOAlergia"
+                id="otroIntoleranciaOAlergia"
+                value={form.otroIntoleranciaOAlergia}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="medicamento">
+              ¿Estás consumiendo algún medicamento actualmente, ya sea de forma
+              transitoria o crónica?:{" "}
+            </label>
+            <select
+              id="medicamento"
+              name="medicamento"
+              onChange={updateField}
+              value={form.medicamento}
+            >
+              <option value="no">No</option>
+              <option value="si">Si</option>
+            </select>
+          </ContenedorInput>
+          {form.medicamento === "si" && (
+            <ContenedorInput>
+              <label htmlFor="cualMedicamento">Que medicamento/s: </label>
+              <InputChico
+                type="text"
+                name="cualMedicamento"
+                id="cualMedicamento"
+                value={form.cualMedicamento}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="suplemento">
+              ¿Estás consumiendo algún suplemento, complemento dietario?:{" "}
+            </label>
+            <select
+              id="suplemento"
+              name="suplemento"
+              onChange={updateField}
+              value={form.suplemento}
+            >
+              <option value="no">No</option>
+              <option value="si">Si</option>
+            </select>
+          </ContenedorInput>
+          {form.suplemento === "si" && (
+            <ContenedorInput>
+              <label htmlFor="cualSuplemento">Que suplemento: </label>
+              <InputChico
+                type="text"
+                name="cualSuplemento"
+                id="cualSuplemento"
+                value={form.cualSuplemento}
+                onChange={updateField}
+              />
+            </ContenedorInput>
+          )}
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="conductaAlimentaria">
+              ¿Problemas de conducta alimentaria?:{" "}
+            </label>
+            <select
+              id="conductaAlimentaria"
+              name="conductaAlimentaria"
+              onChange={updateField}
+              value={form.conductaAlimentaria}
+            >
+              <option value="ninguno">Ninguno</option>
+              <option value="atracones">Atracones</option>
+              <option value="comedorNocturno">Sx del comedor nocturno</option>
+              <option value="picoteos">Picoteos</option>
+              <option value="tca">TCA</option>
+            </select>
+          </ContenedorInput>
+          <ContenedorInput style={{ marginBottom: "20px" }}>
+            <label htmlFor="objetivo">
+              Objetivo:{" "}
+            </label>
+            <select
+              id="objetivo"
+              name="objetivo"
+              onChange={updateField}
+              value={form.objetivo}
+            >
+              <option value="vidaSaludable">Adquirir un estilo de vida saludable</option>
+              <option value="condicionFisica">Ganar condición física</option>
+              <option value="tonificarCuerpo">Tonificar el cuerpo</option>
+              <option value="fuerzaYMasaMuscular">Ganar fuerza y masa muscular</option>
+              <option value="perderPeso">Perder peso</option>
+            </select>
+          </ContenedorInput>
           <ContenedorInput style={{ marginTop: "20px" }}>
             <label htmlFor="enfCardiacas">Enfermedades cardiacas</label>
             <ContenedorInputRadio>
