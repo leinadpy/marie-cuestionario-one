@@ -1,7 +1,10 @@
 {
   "name": "marie-cuestionario-one",
   "version": "0.1.0",
-  "author": {"name": "Daniel Ojeda", "email": "leinadpy@gmail.com"},
+  "author": {
+    "name": "Daniel Ojeda",
+    "email": "leinadpy@gmail.com"
+  },
   "private": true,
   "dependencies": {
     "@react-pdf/renderer": "^2.0.19",
@@ -49,6 +52,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.8.6",
-    "postcss": "^7.0.36"
+    "postcss": "^7.0.36",
+    "prettier": "2.8.2"
   }
 }

@@ -1,71 +1,73 @@
-import { useEffect, useState } from "react";
-import Alerta from "../../elements/Alerta";
-import addPaciente from "../../firebase/pacientes/addPaciente";
-import editPaciente from "../../firebase/pacientes/editPaciente";
+import { useEffect, useState } from 'react';
+import Alerta from '../../elements/Alerta';
+import addPaciente from '../../firebase/pacientes/addPaciente';
+import editPaciente from '../../firebase/pacientes/editPaciente';
 import {
   FormularioDiv,
   InputChico,
   ContenedorInput,
   TextArea,
-  InputRadio,
-  ContenedorInputRadio,
-} from "../../elements/ElementosDeFormulario";
-import { useHistory } from "react-router-dom";
-import Buton from "../../elements/Buton";
+  ContenedorInputCheckbox,
+} from '../../elements/ElementosDeFormulario';
+import { useHistory } from 'react-router-dom';
+import Buton from '../../elements/Buton';
+
+const initialState = {
+  fechaCreacion: '',
+  nombreYApellido: '',
+  fechaDeNacimiento: '',
+  edad: '',
+  documento: '',
+  sexo: 'femenino',
+  pais: '',
+  ciudad: '',
+  telefono: '',
+  correo: '',
+  profesion: '',
+  hijos: '0',
+  conQuienVive: 'solo',
+  peso: '',
+  estatura: '',
+  imc: '',
+  patologiaBase: 'ninguna',
+  otroPatologiaBase: '',
+  intoleranciaOAlergia: 'ninguna',
+  otroIntoleranciaOAlergia: '',
+  medicamento: 'no',
+  cualMedicamento: '',
+  suplemento: 'no',
+  cualSuplemento: '',
+  conductaAlimentaria: 'ninguno',
+  objetivo: 'vidaSaludable',
+  molestiaRecurrente: 'ninguna',
+  otroMolestiaRecurrente: '',
+  horarioRutinaDiaria: '',
+  horasDormir: '8hsomas',
+  actividadFisica: 'gymPesas',
+  cualDeporte: '',
+  otroActividadFisica: '',
+  frecuenciaAF: '3vecesomenos',
+  duracionAF: '45-60min',
+  otroDuracionAF: '',
+  horarioAF: 'primeraHora',
+  calidadAlimentacion: 'poco',
+  organizacionPlanificacion: 'poco',
+  alimentoNoConsumible: '',
+  habilidadCocina: 'malo',
+  organizarAlmuerzosCenas: 'recetasMomento',
+  suplementoConsiderado: '',
+  desayuno: '',
+  almuerzo: '',
+  merienda: '',
+  cena: '',
+  loPeorAlimentacion: '',
+  loMejorHabitos: '',
+  algunComentario: '',
+  informacion_veridica: false,
+};
 
 const Formulario = ({ paciente }) => {
-  const [form, setForm] = useState({
-    fechaCreacion: "",
-    nombreYApellido: "",
-    fechaDeNacimiento: "",
-    edad: "",
-    documento: "",
-    sexo: "",
-    pais: "",
-    ciudad: "",
-    telefono: "",
-    correo: "",
-    profesion: "",
-    hijos: "",
-    conQuienVive: "",
-    peso: "",
-    estatura: "",
-    imc: "",
-    patologiaBase: "",
-    otroPatologiaBase: "",
-    intoleranciaOAlergia: "",
-    otroIntoleranciaOAlergia: "",
-    medicamento: "",
-    cualMedicamento: "",
-    suplemento: "",
-    cualSuplemento: "",
-    conductaAlimentaria: "",
-    objetivo: "",
-    molestiaRecurrente: "",
-    otroMolestiaRecurrente: "",
-    horarioRutinaDiaria: "",
-    horasDormir: "",
-    actividadFisica: "",
-    cualDeporte: "",
-    otroActividadFisica: "",
-    frecuenciaAF: "",
-    duracionAF: "",
-    otroDuracionAF: "",
-    horarioAF: "",
-    calidadAlimentacion: "",
-    organizacionPlanificacion: "",
-    alimentoNoConsumible: "",
-    habilidadCocina: "",
-    organizarAlmuerzosCenas: "",
-    suplementoConsiderado: "",
-    desayuno: "",
-    almuerzo: "",
-    merienda: "",
-    cena: "",
-    loPeorAlimentacion: "",
-    loMejorHabitos: "",
-    algunComentario: "",
-  });
+  const [form, setForm] = useState(initialState);
   const [alerta, setAlerta] = useState({});
   const [estadoAlerta, setEstadoAlerta] = useState(false);
   const history = useHistory();
@@ -73,7 +75,7 @@ const Formulario = ({ paciente }) => {
   useEffect(() => {
     if (paciente) {
       setForm({
-        fechaCreacion: paciente.fechaCreacion ? paciente.fechaCreacion : "",
+        fechaCreacion: paciente.fechaCreacion ? paciente.fechaCreacion : '',
         nombreYApellido: paciente.data().nombreYApellido,
         fechaDeNacimiento: paciente.data().fechaDeNacimiento,
         edad: paciente.data().edad,
@@ -86,8 +88,8 @@ const Formulario = ({ paciente }) => {
         profesion: paciente.data().profesion,
         hijos: paciente.data().hijos,
         conQuienVive: paciente.data().conQuienVive,
-        peso: paciente.data().peso ? paciente.data().peso : "",
-        estatura: paciente.data().estatura ? paciente.data().estatura : "",
+        peso: paciente.data().peso ? paciente.data().peso : '',
+        estatura: paciente.data().estatura ? paciente.data().estatura : '',
         imc: paciente.data().imc,
         patologiaBase: paciente.data().patologiaBase,
         otroPatologiaBase: paciente.data().otroPatologiaBase,
@@ -123,6 +125,7 @@ const Formulario = ({ paciente }) => {
         loPeorAlimentacion: paciente.data().loPeorAlimentacion,
         loMejorHabitos: paciente.data().loMejorHabitos,
         algunComentario: paciente.data().algunComentario,
+        informacion_veridica: paciente.data().informacion_veridica,
       });
     }
   }, [paciente]);
@@ -158,58 +161,7 @@ const Formulario = ({ paciente }) => {
 
   const handleReset = (e) => {
     e.preventDefault();
-    setForm({
-      fechaCreacion: "",
-      nombreYApellido: "",
-      fechaDeNacimiento: "",
-      edad: "",
-      documento: "",
-      sexo: "",
-      pais: "",
-      ciudad: "",
-      telefono: "",
-      correo: "",
-      profesion: "",
-      hijos: "",
-      conQuienVive: "",
-      peso: "",
-      estatura: "",
-      imc: "",
-      patologiaBase: "",
-      otroPatologiaBase: "",
-      intoleranciaOAlergia: "",
-      otroIntoleranciaOAlergia: "",
-      medicamento: "",
-      cualMedicamento: "",
-      suplemento: "",
-      cualSuplemento: "",
-      conductaAlimentaria: "",
-      objetivo: "",
-      molestiaRecurrente: "",
-      otroMolestiaRecurrente: "",
-      horarioRutinaDiaria: "",
-      horasDormir: "",
-      actividadFisica: "",
-      cualDeporte: "",
-      otroActividadFisica: "",
-      frecuenciaAF: "",
-      duracionAF: "",
-      otroDuracionAF: "",
-      horarioAF: "",
-      calidadAlimentacion: "",
-      organizacionPlanificacion: "",
-      alimentoNoConsumible: "",
-      habilidadCocina: "",
-      organizarAlmuerzosCenas: "",
-      suplementoConsiderado: "",
-      desayuno: "",
-      almuerzo: "",
-      merienda: "",
-      cena: "",
-      loPeorAlimentacion: "",
-      loMejorHabitos: "",
-      algunComentario: "",
-    });
+    setForm(initialState);
   };
 
   const handleSubmit = (e) => {
@@ -217,16 +169,16 @@ const Formulario = ({ paciente }) => {
     setEstadoAlerta(false);
     setAlerta({});
     if (
-      form.nombreYApellido !== "" ||
-      form.fechaDeNacimiento !== "" ||
-      form.pais !== "" ||
-      form.ciudad !== "" ||
-      form.telefono !== ""
+      form.nombreYApellido !== '' ||
+      form.fechaDeNacimiento !== '' ||
+      form.pais !== '' ||
+      form.ciudad !== '' ||
+      form.telefono !== ''
     ) {
       if (paciente) {
         editPaciente({
           id: paciente.id,
-          fechaCreacion: form.fechaCreacion ? form.fechaCreacion : "",
+          fechaCreacion: form.fechaCreacion ? form.fechaCreacion : '',
           nombreYApellido: form.nombreYApellido,
           fechaDeNacimiento: form.fechaDeNacimiento,
           edad: form.edad,
@@ -239,8 +191,8 @@ const Formulario = ({ paciente }) => {
           profesion: form.profesion,
           hijos: form.hijos,
           conQuienVive: form.conQuienVive,
-          peso: form.peso ? form.peso : "",
-          estatura: form.estatura ? form.estatura : "",
+          peso: form.peso ? form.peso : '',
+          estatura: form.estatura ? form.estatura : '',
           imc: form.imc,
           patologiaBase: form.patologiaBase,
           otroPatologiaBase: form.otroPatologiaBase,
@@ -276,9 +228,10 @@ const Formulario = ({ paciente }) => {
           loPeorAlimentacion: form.loPeorAlimentacion,
           loMejorHabitos: form.loMejorHabitos,
           algunComentario: form.algunComentario,
+          informacion_veridica: form.informacion_veridica,
         })
           .then(() => {
-            history.push("/pacientes");
+            history.push('/pacientes');
           })
           .catch((error) => {
             console.log(error);
@@ -328,6 +281,9 @@ const Formulario = ({ paciente }) => {
           horarioAF: form.horarioAF,
           calidadAlimentacion: form.calidadAlimentacion,
           organizacionPlanificacion: form.organizacionPlanificacion,
+          alimentoNoConsumible: form.alimentoNoConsumible,
+          habilidadCocina: form.habilidadCocina,
+          organizarAlmuerzosCenas: form.organizarAlmuerzosCenas,
           suplementoConsiderado: form.suplementoConsiderado,
           desayuno: form.desayuno,
           almuerzo: form.almuerzo,
@@ -336,81 +292,40 @@ const Formulario = ({ paciente }) => {
           loPeorAlimentacion: form.loPeorAlimentacion,
           loMejorHabitos: form.loMejorHabitos,
           algunComentario: form.algunComentario,
+          informacion_veridica: form.informacion_veridica,
         })
           .then(() => {
-            setForm({
-              fechaCreacion: "",
-              nombreYApellido: "",
-              fechaDeNacimiento: "",
-              edad: "",
-              documento: "",
-              sexo: "",
-              pais: "",
-              ciudad: "",
-              telefono: "",
-              correo: "",
-              profesion: "",
-              hijos: "",
-              conQuienVive: "",
-              peso: "",
-              estatura: "",
-              imc: "",
-              patologiaBase: "",
-              otroPatologiaBase: "",
-              intoleranciaOAlergia: "",
-              otroIntoleranciaOAlergia: "",
-              medicamento: "",
-              cualMedicamento: "",
-              suplemento: "",
-              cualSuplemento: "",
-              conductaAlimentaria: "",
-              objetivo: "",
-              molestiaRecurrente: "",
-              otroMolestiaRecurrente: "",
-              horarioRutinaDiaria: "",
-              horasDormir: "",
-              actividadFisica: "",
-              cualDeporte: "",
-              otroActividadFisica: "",
-              frecuenciaAF: "",
-              duracionAF: "",
-              otroDuracionAF: "",
-              horarioAF: "",
-              calidadAlimentacion: "",
-              organizacionPlanificacion: "",
-              alimentoNoConsumible: "",
-              habilidadCocina: "",
-              organizarAlmuerzosCenas: "",
-              suplementoConsiderado: "",
-              desayuno: "",
-              almuerzo: "",
-              merienda: "",
-              cena: "",
-              loPeorAlimentacion: "",
-              loMejorHabitos: "",
-              algunComentario: "",
-            });
+            setForm(initialState);
             setEstadoAlerta(true);
             setAlerta({
-              tipo: "exito",
-              mensaje: "Formulario enviado exitosamente",
+              tipo: 'exito',
+              mensaje: 'Formulario enviado exitosamente',
             });
           })
           .catch((error) => {
             setEstadoAlerta(true);
             setAlerta({
-              tipo: "error",
-              mensaje: "El valor ingresado no es el correcto",
+              tipo: 'error',
+              mensaje: 'El valor ingresado no es el correcto',
             });
           });
       }
     } else {
       setEstadoAlerta(true);
       setAlerta({
-        tipo: "error",
-        mensaje: "Por favor rellena los datos principales",
+        tipo: 'error',
+        mensaje: 'Por favor rellena los datos principales',
       });
     }
+  };
+
+  const handleCheckboxChange = (e) => {
+    console.log(e.target.checked);
+    console.log(form.informacion_veridica);
+    setForm({
+      ...form,
+      [e.target.name]: e.target.checked,
+    });
   };
 
   const updateField = (e) => {
@@ -424,8 +339,8 @@ const Formulario = ({ paciente }) => {
     <>
       <FormularioDiv onSubmit={handleSubmit}>
         <div>
-          <span style={{ fontWeight: "bold" }}>Datos personales</span>
-          <ContenedorInput style={{ marginTop: "20px" }}>
+          <span style={{ fontWeight: 'bold' }}>Datos personales</span>
+          <ContenedorInput style={{ marginTop: '20px' }}>
             <label htmlFor="nombreYApellido">Nombre y Apellido: </label>
             <InputChico
               type="text"
@@ -466,7 +381,7 @@ const Formulario = ({ paciente }) => {
               onChange={updateField}
             />
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="sexo">Sexo: </label>
             <select
               id="sexo"
@@ -528,7 +443,7 @@ const Formulario = ({ paciente }) => {
               onChange={updateField}
             />
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="hijos">N° de hijos: </label>
             <select
               id="hijos"
@@ -549,7 +464,7 @@ const Formulario = ({ paciente }) => {
               <option value="10">10</option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="conQuienVive">Con quién vive: </label>
             <select
               id="conQuienVive"
@@ -594,7 +509,7 @@ const Formulario = ({ paciente }) => {
               value={form.imc}
             />
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="patologiaBase">Patología de base: </label>
             <select
               id="patologiaBase"
@@ -615,7 +530,7 @@ const Formulario = ({ paciente }) => {
               <option value="otro">Otro</option>
             </select>
           </ContenedorInput>
-          {form.patologiaBase === "otro" && (
+          {form.patologiaBase === 'otro' && (
             <ContenedorInput>
               <label htmlFor="otroPatologiaBase">Otra patología: </label>
               <InputChico
@@ -627,9 +542,9 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="intoleranciaOAlergia">
-              Alguna intolerancia o alergia alimentaria:{" "}
+              Alguna intolerancia o alergia alimentaria:{' '}
             </label>
             <select
               id="intoleranciaOAlergia"
@@ -645,10 +560,10 @@ const Formulario = ({ paciente }) => {
               <option value="otro">Otro</option>
             </select>
           </ContenedorInput>
-          {form.intoleranciaOAlergia === "otro" && (
+          {form.intoleranciaOAlergia === 'otro' && (
             <ContenedorInput>
               <label htmlFor="otroIntoleranciaOAlergia">
-                Otra intolerancia o alergia:{" "}
+                Otra intolerancia o alergia:{' '}
               </label>
               <InputChico
                 type="text"
@@ -659,10 +574,10 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="medicamento">
               ¿Estás consumiendo algún medicamento actualmente, ya sea de forma
-              transitoria o crónica?:{" "}
+              transitoria o crónica?:{' '}
             </label>
             <select
               id="medicamento"
@@ -674,7 +589,7 @@ const Formulario = ({ paciente }) => {
               <option value="si">Si</option>
             </select>
           </ContenedorInput>
-          {form.medicamento === "si" && (
+          {form.medicamento === 'si' && (
             <ContenedorInput>
               <label htmlFor="cualMedicamento">Que medicamento/s: </label>
               <InputChico
@@ -686,9 +601,9 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="suplemento">
-              ¿Estás consumiendo algún suplemento, complemento dietario?:{" "}
+              ¿Estás consumiendo algún suplemento, complemento dietario?:{' '}
             </label>
             <select
               id="suplemento"
@@ -700,7 +615,7 @@ const Formulario = ({ paciente }) => {
               <option value="si">Si</option>
             </select>
           </ContenedorInput>
-          {form.suplemento === "si" && (
+          {form.suplemento === 'si' && (
             <ContenedorInput>
               <label htmlFor="cualSuplemento">Que suplemento: </label>
               <InputChico
@@ -712,9 +627,9 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="conductaAlimentaria">
-              ¿Problemas de conducta alimentaria?:{" "}
+              ¿Problemas de conducta alimentaria?:{' '}
             </label>
             <select
               id="conductaAlimentaria"
@@ -729,7 +644,7 @@ const Formulario = ({ paciente }) => {
               <option value="tca">TCA</option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="objetivo">Objetivo: </label>
             <select
               id="objetivo"
@@ -748,9 +663,9 @@ const Formulario = ({ paciente }) => {
               <option value="perderPeso">Perder peso</option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="molestiaRecurrente">
-              ¿Sientes algún tipo de molestia recurrente?:{" "}
+              ¿Sientes algún tipo de molestia recurrente?:{' '}
             </label>
             <select
               id="molestiaRecurrente"
@@ -767,10 +682,10 @@ const Formulario = ({ paciente }) => {
               <option value="otro">Otro</option>
             </select>
           </ContenedorInput>
-          {form.molestiaRecurrente === "otro" && (
+          {form.molestiaRecurrente === 'otro' && (
             <ContenedorInput>
               <label htmlFor="otroMolestiaRecurrente">
-                Otra molestia recurrente:{" "}
+                Otra molestia recurrente:{' '}
               </label>
               <InputChico
                 type="text"
@@ -797,9 +712,9 @@ const Formulario = ({ paciente }) => {
               id="horarioRutinaDiaria"
             />
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="horasDormir">
-              ¿Cuántas horas duermes en promedio?:{" "}
+              ¿Cuántas horas duermes en promedio?:{' '}
             </label>
             <select
               id="horasDormir"
@@ -815,9 +730,9 @@ const Formulario = ({ paciente }) => {
               </option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="actividadFisica">
-              ¿Qué tipo de actividad física estás realizando?:{" "}
+              ¿Qué tipo de actividad física estás realizando?:{' '}
             </label>
             <select
               id="actividadFisica"
@@ -834,7 +749,7 @@ const Formulario = ({ paciente }) => {
               <option value="otro">Otro</option>
             </select>
           </ContenedorInput>
-          {form.actividadFisica === "deporte" && (
+          {form.actividadFisica === 'deporte' && (
             <ContenedorInput>
               <label htmlFor="cualDeporte">Cual deporte: </label>
               <InputChico
@@ -846,10 +761,10 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          {form.actividadFisica === "otro" && (
+          {form.actividadFisica === 'otro' && (
             <ContenedorInput>
               <label htmlFor="otroActividadFisica">
-                Otra actividad física:{" "}
+                Otra actividad física:{' '}
               </label>
               <InputChico
                 type="text"
@@ -860,9 +775,9 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="frecuenciaAF">
-              Frecuencia de tu actividad física:{" "}
+              Frecuencia de tu actividad física:{' '}
             </label>
             <select
               id="frecuenciaAF"
@@ -875,9 +790,9 @@ const Formulario = ({ paciente }) => {
               <option value="5vecesomas">Más de 5 veces a la semana</option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="duracionAF">
-              Duración de tu actividad física por sesión:{" "}
+              Duración de tu actividad física por sesión:{' '}
             </label>
             <select
               id="duracionAF"
@@ -891,7 +806,7 @@ const Formulario = ({ paciente }) => {
               <option value="otro">Otro</option>
             </select>
           </ContenedorInput>
-          {form.duracionAF === "otro" && (
+          {form.duracionAF === 'otro' && (
             <ContenedorInput>
               <label htmlFor="otroDuracionAF">Otra duración: </label>
               <InputChico
@@ -903,10 +818,10 @@ const Formulario = ({ paciente }) => {
               />
             </ContenedorInput>
           )}
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="horarioAF">
               ¿En qué horario sueles realizar con mayor frecuencia tu actividad
-              física?:{" "}
+              física?:{' '}
             </label>
             <select
               id="horarioAF"
@@ -922,10 +837,10 @@ const Formulario = ({ paciente }) => {
               <option value="noche">Noche</option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="calidadAlimentacion">
               En cuanto a la calidad de tu alimentación. ¿En qué punto dirías
-              que te encuentras hoy?:{" "}
+              que te encuentras hoy?:{' '}
             </label>
             <select
               id="calidadAlimentacion"
@@ -946,10 +861,10 @@ const Formulario = ({ paciente }) => {
               </option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="organizacionPlanificacion">
               En cuanto a la organización y planificación. ¿En qué punto dirías
-              que te encuentras hoy?:{" "}
+              que te encuentras hoy?:{' '}
             </label>
             <select
               id="organizacionPlanificacion"
@@ -984,9 +899,9 @@ const Formulario = ({ paciente }) => {
               id="alimentoNoConsumible"
             />
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="habilidadCocina">
-              Tu desenvolvimiento en la cocina:{" "}
+              Tu desenvolvimiento en la cocina:{' '}
             </label>
             <select
               id="habilidadCocina"
@@ -1002,9 +917,9 @@ const Formulario = ({ paciente }) => {
               </option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="organizarAlmuerzosCenas">
-              ¿Cómo te gustaría organizarte con los almuerzos y las cenas?:{" "}
+              ¿Cómo te gustaría organizarte con los almuerzos y las cenas?:{' '}
             </label>
             <select
               id="organizarAlmuerzosCenas"
@@ -1028,10 +943,10 @@ const Formulario = ({ paciente }) => {
               </option>
             </select>
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "30px" }}>
+          <ContenedorInput style={{ marginBottom: '30px' }}>
             <label htmlFor="suplementoConsiderado">
               ¿Estás considerando utilizar algún suplemento? Coméntame cuál y
-              con qué finalidad, con tus palabras:{" "}
+              con qué finalidad, con tus palabras:{' '}
             </label>
             <TextArea
               cols="50"
@@ -1084,7 +999,7 @@ const Formulario = ({ paciente }) => {
               id="merienda"
             />
           </ContenedorInput>
-          <ContenedorInput style={{ marginBottom: "20px" }}>
+          <ContenedorInput style={{ marginBottom: '20px' }}>
             <label htmlFor="cena">Cena: </label>
             <TextArea
               cols="50"
@@ -1098,7 +1013,7 @@ const Formulario = ({ paciente }) => {
           </ContenedorInput>
           <ContenedorInput>
             <label htmlFor="loPeorAlimentacion">
-              ¿Qué dirías que es lo peor de tu alimentación hoy en día?:{" "}
+              ¿Qué dirías que es lo peor de tu alimentación hoy en día?:{' '}
             </label>
             <TextArea
               cols="50"
@@ -1113,7 +1028,7 @@ const Formulario = ({ paciente }) => {
           <ContenedorInput>
             <label htmlFor="loMejorHabitos">
               ¿Qué dirías que es lo mejor o algunos hábitos saludables que ya
-              tienes incorporados?:{" "}
+              tienes incorporados?:{' '}
             </label>
             <TextArea
               cols="50"
@@ -1128,7 +1043,7 @@ const Formulario = ({ paciente }) => {
           <ContenedorInput>
             <label htmlFor="algunComentario">
               Algún comentario relevante que no hayamos tocado hasta ahora y me
-              quieras hacer saber:{" "}
+              quieras hacer saber:{' '}
             </label>
             <TextArea
               cols="50"
@@ -1141,15 +1056,35 @@ const Formulario = ({ paciente }) => {
             />
           </ContenedorInput>
 
-          <span>
+          <ContenedorInputCheckbox>
+            <label
+              htmlFor="informacion_veridica"
+              style={{ width: '100%', textAlign: 'left' }}
+            >
+              <input
+                type="checkbox"
+                name="informacion_veridica"
+                id="informacion_veridica"
+                checked={form.informacion_veridica}
+                onChange={handleCheckboxChange}
+              />{' '}
+              Confirmo que la información proporcionada es precisa y verídica.
+            </label>
+          </ContenedorInputCheckbox>
+
+          <p>
             En cuanto a tu evaluación de composición actual, voy a necesitar que
             al terminar este cuestionario, te dirijas al whatsapp y me digas
             "estoy listo para la evaluación". Así podré asesorarte de cómo
             llevaremos acabo este punto.
-          </span>
-          <ContenedorInput style={{ marginTop: "20px" }}>
-            <Buton type="submit" primario="true">
-              {paciente ? "Editar" : "Enviar"}
+          </p>
+          <ContenedorInput style={{ marginTop: '20px' }}>
+            <Buton
+              type="submit"
+              primario="true"
+              disabled={!form.informacion_veridica}
+            >
+              {paciente ? 'Editar' : 'Enviar'}
             </Buton>
             <Buton type="resetForm" onClick={handleReset}>
               Reset

@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { db } from "./../firebase/firebaseConfig";
+import { db } from "../firebase/firebaseConfig";
 import { useHistory } from "react-router-dom";
 
 const useGetPaciente = (id) => {

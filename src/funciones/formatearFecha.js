@@ -3,9 +3,7 @@ const formatearFecha = (fecha) => {
   const mes = fecha.substring(5, 7);
   const dia = fecha.substring(8, 10);
 
-  const newFecha = `${dia}-${mes}-${anho}`;
-
-  return newFecha;
+  return `${dia}-${mes}-${anho}`;
 };
 
 export default formatearFecha;

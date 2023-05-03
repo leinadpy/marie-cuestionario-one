@@ -1,4 +1,4 @@
-import { db } from "./../firebaseConfig";
+import { db } from "../firebaseConfig";
 
 const deletePaciente = (id) => {
   db.collection("pacientes").doc(id).delete();

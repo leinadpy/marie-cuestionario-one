@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import theme from "./../theme";
+import styled from 'styled-components';
+import theme from './../theme';
 
 const ContenedorFiltros = styled.div`
   display: flex;
@@ -24,6 +24,11 @@ const ContenedorInput = styled.div`
   width: 100%;
 `;
 
+const ContenedorInputCheckbox = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+
 const FormularioDiv = styled.form`
   padding: 0 1rem; /* 40px */
   display: flex;
@@ -43,7 +48,7 @@ const FormularioDiv = styled.form`
     width: 30%;
     text-align: center;
     padding: 0.1m 0;
-    font-family: "Work Sans", sans-serif;
+    font-family: 'Work Sans', sans-serif;
     &::placeholder {
       color: rgba(0, 0, 0, 0.2);
     }
@@ -89,7 +94,7 @@ const InputChico = styled.input`
   width: 30%;
   text-align: center;
   padding: 0.1m 0;
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Work Sans', sans-serif;
   &::placeholder {
     color: rgba(0, 0, 0, 0.2);
   }
@@ -121,7 +126,7 @@ const InputRadio = styled.input`
   text-align: center;
   padding: 5px;
   margin: 5px;
-  font-family: "Work Sans", sans-serif;
+  font-family: 'Work Sans', sans-serif;
   @media (max-width: 60rem) {
     /* 950px */
     font-size: 1rem;
@@ -154,6 +159,7 @@ export {
   InputChico,
   ContenedorBoton,
   ContenedorInput,
+  ContenedorInputCheckbox,
   TextArea,
   InputRadio,
   ContenedorInputRadio,

@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { Header, Titulo, ContenedorHeader } from "./../../elements/Header";
+import { Header, Titulo, ContenedorHeader } from "../../elements/Header";
 import { Helmet } from "react-helmet";
-import useGetPacientes from "./../../hooks/useGetPacientes";
-import deletePaciente from "./../../firebase/pacientes/deletePaciente";
+import useGetPacientes from "../../hooks/useGetPacientes";
+import deletePaciente from "../../firebase/pacientes/deletePaciente";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
-import ContenedorTabla from "./../../elements/ContenedorTabla";
-import Menu from "./../Menu";
-import { ReactComponent as IconoEditar } from "./../../images/editar.svg";
-import { ReactComponent as IconoBorrar } from "./../../images/borrar.svg";
-import { ReactComponent as IconoPDF } from "./../../images/pdf.svg";
+import ContenedorTabla from "../../elements/ContenedorTabla";
+import Menu from "../Menu";
+import { ReactComponent as IconoEditar } from "../../images/editar.svg";
+import { ReactComponent as IconoBorrar } from "../../images/borrar.svg";
+import { ReactComponent as IconoPDF } from "../../images/pdf.svg";
 import { MDBDataTable } from "mdbreact";
-import Boton from "./../../elements/Boton";
-import Buton from "./../../elements/Buton";
+import Boton from "../../elements/Boton";
+import Buton from "../../elements/Buton";
 import { ContenedorBoton } from "../../elements/ElementosDeFormulario";
 
 const PacienteList = () => {
@@ -47,7 +47,7 @@ const PacienteList = () => {
                 <IconoPDF />
               </Boton>
             </ContenedorBoton>
-          ),
+          )
         };
         datosFormateados.push(datoFormateado);
       });
@@ -59,9 +59,11 @@ const PacienteList = () => {
 
   function formatDate(date) {
     const d = date.toDate();
+
     function padTo2Digits(num) {
       return num.toString().padStart(2, "0");
     }
+
     let month = "" + (d.getMonth() + 1);
     let day = "" + d.getDate();
     let year = d.getFullYear();
@@ -74,7 +76,7 @@ const PacienteList = () => {
       [
         padTo2Digits(d.getHours()),
         padTo2Digits(d.getMinutes()),
-        padTo2Digits(d.getSeconds()),
+        padTo2Digits(d.getSeconds())
       ].join(":")
     );
   }
@@ -85,34 +87,34 @@ const PacienteList = () => {
         label: "Nombre y Apellido",
         field: "nombreYApellido",
         sort: "asc",
-        width: 150,
+        width: 150
       },
       {
         label: "Edad",
         field: "edad",
         sort: "asc",
-        width: 100,
+        width: 100
       },
       {
         label: "Fecha",
         field: "fechaCreacion",
         sort: "asc",
-        width: 100,
+        width: 100
       },
       {
         label: "Teléfono",
         field: "telefono",
         sort: "asc",
-        width: 100,
+        width: 100
       },
       {
         label: "ABM",
         field: "abm",
         sort: "asc",
-        width: 100,
-      },
+        width: 100
+      }
     ],
-    rows: pacientes,
+    rows: pacientes
   };
 
   return (

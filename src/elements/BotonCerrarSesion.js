@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactComponent as IconoCerrarSesion } from "./../images/log-out.svg";
 import Boton from "./Boton";
-import { auth } from "./../firebase/firebaseConfig";
+import { auth } from "../firebase/firebaseConfig";
 import { useHistory } from "react-router-dom";
 
 const BotonCerrarSesion = () => {

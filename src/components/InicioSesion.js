@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { Helmet } from "react-helmet";
-import { Header, Titulo, ContenedorHeader } from "./../elements/Header";
-import Boton from "./../elements/Boton";
+import { Header, Titulo, ContenedorHeader } from "../elements/Header";
+import Boton from "../elements/Boton";
 import {
   FormularioDiv,
   Input,
-  ContenedorBoton,
-} from "./../elements/ElementosDeFormulario";
-import { ReactComponent as SvgLogin } from "./../images/login.svg";
+  ContenedorBoton
+} from "../elements/ElementosDeFormulario";
+import { ReactComponent as SvgLogin } from "../images/login.svg";
 import styled from "styled-components";
 import { Link, useHistory } from "react-router-dom";
-import Alerta from "./../elements/Alerta";
-import { auth } from "./../firebase/firebaseConfig";
+import Alerta from "../elements/Alerta";
+import { auth } from "../firebase/firebaseConfig";
 
 const Svg = styled(SvgLogin)`
   width: 100%;
@@ -44,7 +44,7 @@ const InicioSesion = () => {
     if (!expresionRegular.test(correo)) {
       setAlerta({
         tipo: "error",
-        mensaje: "Por favor ingresa un correo válido",
+        mensaje: "Por favor ingresa un correo válido"
       });
       setEstadoAlerta(true);
       return;
@@ -53,7 +53,7 @@ const InicioSesion = () => {
     if (correo === "" || password === "") {
       setAlerta({
         tipo: "error",
-        mensaje: "Por favor rellena todos los datos",
+        mensaje: "Por favor rellena todos los datos"
       });
       setEstadoAlerta(true);
       return;
@@ -80,7 +80,7 @@ const InicioSesion = () => {
       }
       setAlerta({
         tipo: "error",
-        mensaje: mensaje,
+        mensaje: mensaje
       });
     }
   };
