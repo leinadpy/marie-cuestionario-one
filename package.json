@@ -1,6 +1,9 @@
 {
   "name": "marie-cuestionario-one",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.17.0"
+  },
   "author": {
     "name": "Daniel Ojeda",
     "email": "leinadpy@gmail.com"
@@ -54,8 +57,5 @@
     "autoprefixer": "^9.8.6",
     "postcss": "^7.0.36",
     "prettier": "2.8.2"
-  },
-  "engines": {
-    "node": ">=14.17.0"
   }
 }
