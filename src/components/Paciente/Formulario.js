@@ -320,8 +320,6 @@ const Formulario = ({ paciente }) => {
   };
 
   const handleCheckboxChange = (e) => {
-    console.log(e.target.checked);
-    console.log(form.informacion_veridica);
     setForm({
       ...form,
       [e.target.name]: e.target.checked,
