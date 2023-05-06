@@ -6,6 +6,13 @@ name: Deploy to Firebase Hosting on merge
   push:
     branches:
       - main
+env:
+  REACT_APP_FIREBASE_API_KEY: AIzaSyCbMOkpWC956XLWUTGw-Iki8SOXF3gzGEI
+  REACT_APP_FIREBASE_AUTH_DOMAIN: marie-nutri-app-d3211.firebaseapp.com
+  REACT_APP_FIREBASE_PROJECT_ID: marie-nutri-app-d3211
+  REACT_APP_FIREBASE_STORAGE_BUCKET: marie-nutri-app-d3211.appspot.com
+  REACT_APP_FIREBASE_MESSAGING_SENDER_ID: 233354107182
+  REACT_APP_FIREBASE_APP_ID: 1:233354107182:web:23355846e5ac7c80ca02bf
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
