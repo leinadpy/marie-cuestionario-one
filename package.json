@@ -2,7 +2,7 @@
   "name": "marie-cuestionario-one",
   "version": "0.1.0",
   "engines": {
-    "node": "14.17.0"
+    "node": "14.18.0"
   },
   "author": {
     "name": "Daniel Ojeda",
