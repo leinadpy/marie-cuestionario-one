@@ -45,7 +45,7 @@ const Menu = () => {
                 width: "50px",
                 height: "50px",
                 padding: "0",
-                color: "#A1B947",
+                color: "#D8D2EB",
                 marginRight: "10px",
               }}
             />
@@ -59,7 +59,7 @@ const Menu = () => {
                 width: "50px",
                 height: "50px",
                 padding: "0",
-                color: "#A1B947",
+                color: "#D8D2EB",
                 marginRight: "10px",
               }}
             />
@@ -70,7 +70,7 @@ const Menu = () => {
                 width: "50px",
                 height: "50px",
                 padding: "0",
-                color: "#A1B947",
+                color: "#D8D2EB",
                 marginRight: "10px",
               }}
             />
@@ -82,7 +82,7 @@ const Menu = () => {
                   width: "50px",
                   height: "50px",
                   padding: "0",
-                  color: "#A1B947",
+                  color: "#D8D2EB",
                   marginRight: "10px",
                 }}
               />

@@ -16,12 +16,15 @@ const App = () => {
         </Helmet>
 
         <ContenedorIndex>
-          <h1 className="font-bold" style={{marginLeft: "20px"}}>
-            Bienvenidos/as, soy su nutricionista{" "}
-            <span style={{ color: "#A1B947" }}>Mariela Ojeda</span>
+          <h1 className="font-bold" style={{ marginLeft: '20px' }}>
+            Bienvenidos/as, soy su nutricionista{' '}
+            <span style={{ color: '#D8D2EB' }}>Mariela Ojeda</span>
           </h1>
 
-          <p className="mt-3" style={{marginLeft: "5px", marginRight:"10px"}}>
+          <p
+            className="mt-3"
+            style={{ marginLeft: '5px', marginRight: '10px' }}
+          >
             Favor completar el siguiente formulario antes de su consulta
           </p>
           <Boton to="/form" primario="true">
